@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* Colores y tipografía */
+        :root {
+            --azul-oscuro: #0D1B2A;
+            --azul-electrico: #1B263B;
+            --verde-neon: #00FFAB;
+            --gris-oscuro: #121212;
+            --blanco: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+        }
+
+        a {
+            color: var(--verde-neon);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--azul-electrico);
+        }
+
+        header nav a {
+            margin: 0 1rem;
+            font-weight: 600;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            background-image: url('https://images.unsplash.com/photo-1581091215363-0e2d0848fca3?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero button {
+            padding: 0.8rem 2rem;
+            background-color: var(--verde-neon);
+            color: var(--azul-oscuro);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            gap: 2rem;
+        }
+
+        .main-content {
+            flex: 3;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--gris-oscuro);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .card-content h3 {
+            margin: 0 0 0.5rem 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .card-content a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .widget {
+            background-color: var(--azul-electrico);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .widget h4 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--azul-electrico);
+            margin-top: 4rem;
+        }
+
+        @media(max-width: 768px){
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h2>CyberSec Blog</h2>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Herramientas</a>
+            <a href="#">Sistemas Operativos</a>
+            <a href="#">Tutoriales</a>
+            <a href="#">Noticias</a>
+            <a href="#">Recursos</a>
+            <a href="#">Sobre mí</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Blog de ciberseguridad y herramientas</h1>
+        <button>Ver artículos</button>
+    </section>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1581091215363-0e2d0848fca3?auto=format&fit=crop&w=600&q=80" alt="">
+                <div class="card-content">
+                    <h3>Introducción al Pentesting</h3>
+                    <p>Descubre las herramientas fundamentales que todo profesional de la seguridad debe conocer...</p>
+                    <a href="#">Leer más</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555529669-8e7e1d0e1c4b?auto=format&fit=crop&w=600&q=80" alt="">
+                <div class="card-content">
+                    <h3>Seguridad en redes</h3>
+                    <p>Aprende a configurar y optimizar firewalls para proteger tu infraestructura de red...</p>
+                    <a href="#">Leer más</a>
+                </div>
+            </div>
+            <!-- Más tarjetas aquí -->
+        </div>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h4>Categorías</h4>
+                <ul>
+                    <li><a href="#">Herramientas</a></li>
+                    <li><a href="#">Tutoriales</a></li>
+                    <li><a href="#">Noticias</a></li>
+                    <li><a href="#">Sistemas Operativos</a></li>
+                    <li><a href="#">Recursos</a></li>
+                </ul>
+            </div>
+            <div class="widget">
+                <h4>Artículos Populares</h4>
+                <ul>
+                    <li><a href="#">Guía completa de pentesting 2024</a></li>
+                    <li><a href="#">Top 10 herramientas de ciberseguridad</a></li>
+                    <li><a href="#">Cómo configurar un firewall en Linux</a></li>
+                </ul>
+            </div>
+            <div class="widget">
+                <h4>Publicidad</h4>
+                <div style="background-color: #000; height: 250px; display: flex; align-items: center; justify-content: center; color:#fff;">Espacio AdSense</div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>© 2025 CyberSec Blog. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
