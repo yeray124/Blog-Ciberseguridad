@@ -337,3 +337,37 @@ footer {
     color: var(--verde-neon); /* color verde neon */
     margin-top: 2rem;
 }
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;    /* Evita que mueva el menú */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: var(--azul-electrico);
+    padding: 1rem;
+    border-radius: 8px;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 100;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--blanco);
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    color: var(--verde-neon);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

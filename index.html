@@ -13,9 +13,24 @@
     <div class="logo">
         <h2>CyberSec Blog</h2>
     </div>
+
     <nav>
+
         <a href="index.html">Inicio</a>
-        <a href="#">Herramientas</a>
+
+        <!-- Dropdown herramientas -->
+        <div class="dropdown">
+            <div class="dropdown">
+                <a href="#">Herramientas</a>
+                <div class="dropdown-menu">
+                    <a href="#">Nmap</a>
+                    <a href="#">Wireshark</a>
+                    <a href="#">Burp Suite</a>
+                    <a href="#">Metasploit</a>
+                </div>
+            </div>
+        </div>
+
         <a href="sistemas.html">Sistemas Operativos</a>
         <a href="tutoriales.html">Tutoriales</a>
         <a href="#">Noticias</a>
@@ -45,7 +60,7 @@
 
 <div class="container">
 
-    <!-- Noticias en filas de 3 columnas -->
+    <!-- Noticias -->
     <div class="news-grid">
         <div class="news-card">
             <img src="kalii.png" alt="Pentesting">
@@ -62,26 +77,25 @@
             <p>Aprende a configurar y optimizar firewalls para proteger tu infraestructura de red...</p>
             <a href="#">Leer más</a>
         </div>
-        
+
         <div class="news-card">
             <img src="kalii.png" alt="Herramientas">
             <span class="date">08/11/2025</span>
             <h3>Herramientas de ciberseguridad</h3>
-            <p>Conoce las herramientas esenciales para auditar y proteger tus sistemas de manera profesional...</p>
+            <p>Conoce las herramientas esenciales para auditar y proteger tus sistemas...</p>
             <a href="#">Leer más</a>
         </div>
 
-
         <div class="news-card">
             <img src="kalii.png" alt="Herramientas">
             <span class="date">08/11/2025</span>
             <h3>Herramientas de ciberseguridad</h3>
-            <p>Conoce las herramientas esenciales para auditar y proteger tus sistemas de manera profesional...</p>
+            <p>Más herramientas esenciales para auditar sistemas...</p>
             <a href="#">Leer más</a>
         </div>
     </div>
 
-    <!-- Sidebar con widgets más grandes -->
+    <!-- Sidebar -->
     <aside class="sidebar">
         <div class="widget large-widget">
             <h4>Categorías</h4>
@@ -93,6 +107,7 @@
                 <li><a href="#">Recursos</a></li>
             </ul>
         </div>
+
         <div class="widget large-widget">
             <h4>Artículos Populares</h4>
             <ul>
@@ -101,6 +116,7 @@
                 <li><a href="#">Cómo configurar un firewall en Linux</a></li>
             </ul>
         </div>
+
         <div class="widget large-widget">
             <h4>Publicidad</h4>
             <div style="background-color: #000; height: 300px; display: flex; align-items: center; justify-content: center; color:#fff;">Espacio AdSense</div>
@@ -108,33 +124,11 @@
     </aside>
 </div>
 
-<!-- Footer profesional -->
 <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-about">
-            <h4>CyberSec Blog</h4>
-            <p>Tu fuente de noticias, tutoriales y recursos sobre ciberseguridad.</p>
-        </div>
-        <div class="footer-links">
-            <h4>Enlaces</h4>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="sobre-mi.html">Sobre mí</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="#">Política de privacidad</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <h4>Contacto</h4>
-            <p>Email: contacto@cybersecblog.com</p>
-            <p>Teléfono: +34 600 123 456</p>
-            <p>España</p>
-        </div>
-    </div>
     <div class="footer-bottom">
         <p>© 2025 CyberSec Blog. Todos los derechos reservados.</p>
     </div>
 </footer>
-
+    <script src="eventos.js"></script>
 </body>
 </html>
