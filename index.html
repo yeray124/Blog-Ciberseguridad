@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberSec Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-    <!-- Enlace al CSS externo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,7 +16,7 @@
         <nav>
             <a href="index.html">Inicio</a>
             <a href="#">Herramientas</a>
-            <a href="#">Sistemas Operativos</a>
+            <a href="sistemas.html">Sistemas Operativos</a>
             <a href="#">Tutoriales</a>
             <a href="#">Noticias</a>
             <a href="#">Recursos</a>
@@ -28,16 +27,24 @@
 
     <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1581091215363-0e2d0848fca3?auto=format&fit=crop&w=1400&q=80');">
         <h1>Blog de ciberseguridad y herramientas</h1>
-        <!-- Botón que enlaza a contacto.html -->
-        <a href="contacto.html"><button>Contacto</button></a>
-        <a href="index.html"><button>Inicio</button></a>
-        <a href="sobre-mi.html"><button>Sobre mí</button></a>
+        <p>Encuentra artículos, tutoriales y noticias sobre ciberseguridad.</p>
     </section>
 
     <div class="container">
+
+        <!-- Buscador con filtros -->
+        <div class="search-filters">
+            <input type="text" placeholder="Buscar artículos..." id="search" name="search">
+            <select id="filter">
+                <option value="recent">Más recientes</option>
+                <option value="old">Más antiguos</option>
+            </select>
+            <button>Buscar</button>
+        </div>
+
         <div class="main-content">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1581091215363-0e2d0848fca3?auto=format&fit=crop&w=600&q=80" alt="">
+                <img src="kalii.png" alt="">
                 <div class="card-content">
                     <h3>Introducción al Pentesting</h3>
                     <p>Descubre las herramientas fundamentales que todo profesional de la seguridad debe conocer...</p>
@@ -45,7 +52,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1555529669-8e7e1d0e1c4b?auto=format&fit=crop&w=600&q=80" alt="">
+                <img src="kalii.png" alt="">
                 <div class="card-content">
                     <h3>Seguridad en redes</h3>
                     <p>Aprende a configurar y optimizar firewalls para proteger tu infraestructura de red...</p>
