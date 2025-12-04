@@ -9,87 +9,132 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <h2>CyberSec Blog</h2>
-        </div>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="#">Herramientas</a>
-            <a href="sistemas.html">Sistemas Operativos</a>
-            <a href="#">Tutoriales</a>
-            <a href="#">Noticias</a>
-            <a href="#">Recursos</a>
-            <a href="sobre-mi.html">Sobre mí</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">
+        <h2>CyberSec Blog</h2>
+    </div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#">Herramientas</a>
+        <a href="sistemas.html">Sistemas Operativos</a>
+        <a href="#">Tutoriales</a>
+        <a href="#">Noticias</a>
+        <a href="#">Recursos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
 
-    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1581091215363-0e2d0848fca3?auto=format&fit=crop&w=1400&q=80');">
-        <h1>Blog de ciberseguridad y herramientas</h1>
-        <p>Encuentra artículos, tutoriales y noticias sobre ciberseguridad.</p>
-    </section>
+<!-- Hero -->
+<section class="hero">
+    <h1>Blog de ciberseguridad y herramientas</h1>
+    <p>Encuentra artículos, tutoriales y noticias sobre ciberseguridad.</p>
+</section>
 
-    <div class="container">
+<!-- Buscador centrado -->
+<div class="search-filters-container">
+    <div class="search-filters">
+        <input type="text" placeholder="Buscar artículos..." id="search" name="search">
+        <select id="filter">
+            <option value="recent">Más recientes</option>
+            <option value="old">Más antiguos</option>
+        </select>
+        <button>Buscar</button>
+    </div>
+</div>
 
-        <!-- Buscador con filtros -->
-        <div class="search-filters">
-            <input type="text" placeholder="Buscar artículos..." id="search" name="search">
-            <select id="filter">
-                <option value="recent">Más recientes</option>
-                <option value="old">Más antiguos</option>
-            </select>
-            <button>Buscar</button>
-        </div>
+<div class="container">
 
-        <div class="main-content">
-            <div class="card">
-                <img src="kalii.png" alt="">
-                <div class="card-content">
-                    <h3>Introducción al Pentesting</h3>
-                    <p>Descubre las herramientas fundamentales que todo profesional de la seguridad debe conocer...</p>
-                    <a href="#">Leer más</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="kalii.png" alt="">
-                <div class="card-content">
-                    <h3>Seguridad en redes</h3>
-                    <p>Aprende a configurar y optimizar firewalls para proteger tu infraestructura de red...</p>
-                    <a href="#">Leer más</a>
-                </div>
-            </div>
+    <!-- Noticias en filas de 3 columnas -->
+    <div class="news-grid">
+        <div class="news-card">
+            <img src="kalii.png" alt="Pentesting">
+            <span class="date">12/11/2025</span>
+            <h3>Introducción al Pentesting</h3>
+            <p>Descubre las herramientas fundamentales que todo profesional de la seguridad debe conocer...</p>
+            <a href="#">Leer más</a>
         </div>
 
-        <aside class="sidebar">
-            <div class="widget">
-                <h4>Categorías</h4>
-                <ul>
-                    <li><a href="#">Herramientas</a></li>
-                    <li><a href="#">Tutoriales</a></li>
-                    <li><a href="#">Noticias</a></li>
-                    <li><a href="#">Sistemas Operativos</a></li>
-                    <li><a href="#">Recursos</a></li>
-                </ul>
-            </div>
-            <div class="widget">
-                <h4>Artículos Populares</h4>
-                <ul>
-                    <li><a href="#">Guía completa de pentesting 2024</a></li>
-                    <li><a href="#">Top 10 herramientas de ciberseguridad</a></li>
-                    <li><a href="#">Cómo configurar un firewall en Linux</a></li>
-                </ul>
-            </div>
-            <div class="widget">
-                <h4>Publicidad</h4>
-                <div style="background-color: #000; height: 250px; display: flex; align-items: center; justify-content: center; color:#fff;">Espacio AdSense</div>
-            </div>
-        </aside>
+        <div class="news-card">
+            <img src="kalii.png" alt="Redes">
+            <span class="date">10/11/2025</span>
+            <h3>Seguridad en redes</h3>
+            <p>Aprende a configurar y optimizar firewalls para proteger tu infraestructura de red...</p>
+            <a href="#">Leer más</a>
+        </div>
+        
+        <div class="news-card">
+            <img src="kalii.png" alt="Herramientas">
+            <span class="date">08/11/2025</span>
+            <h3>Herramientas de ciberseguridad</h3>
+            <p>Conoce las herramientas esenciales para auditar y proteger tus sistemas de manera profesional...</p>
+            <a href="#">Leer más</a>
+        </div>
+
+
+        <div class="news-card">
+            <img src="kalii.png" alt="Herramientas">
+            <span class="date">08/11/2025</span>
+            <h3>Herramientas de ciberseguridad</h3>
+            <p>Conoce las herramientas esenciales para auditar y proteger tus sistemas de manera profesional...</p>
+            <a href="#">Leer más</a>
+        </div>
     </div>
 
-    <footer>
+    <!-- Sidebar con widgets más grandes -->
+    <aside class="sidebar">
+        <div class="widget large-widget">
+            <h4>Categorías</h4>
+            <ul>
+                <li><a href="#">Herramientas</a></li>
+                <li><a href="#">Tutoriales</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Sistemas Operativos</a></li>
+                <li><a href="#">Recursos</a></li>
+            </ul>
+        </div>
+        <div class="widget large-widget">
+            <h4>Artículos Populares</h4>
+            <ul>
+                <li><a href="#">Guía completa de pentesting 2024</a></li>
+                <li><a href="#">Top 10 herramientas de ciberseguridad</a></li>
+                <li><a href="#">Cómo configurar un firewall en Linux</a></li>
+            </ul>
+        </div>
+        <div class="widget large-widget">
+            <h4>Publicidad</h4>
+            <div style="background-color: #000; height: 300px; display: flex; align-items: center; justify-content: center; color:#fff;">Espacio AdSense</div>
+        </div>
+    </aside>
+</div>
+
+<!-- Footer profesional -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <h4>CyberSec Blog</h4>
+            <p>Tu fuente de noticias, tutoriales y recursos sobre ciberseguridad.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Enlaces</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="sobre-mi.html">Sobre mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contacto</h4>
+            <p>Email: contacto@cybersecblog.com</p>
+            <p>Teléfono: +34 600 123 456</p>
+            <p>España</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
         <p>© 2025 CyberSec Blog. Todos los derechos reservados.</p>
-    </footer>
+    </div>
+</footer>
 
 </body>
 </html>
