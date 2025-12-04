@@ -37,7 +37,7 @@ header nav a {
 }
 
 .hero {
-    background-image: url('fondokali.jpg'); /* Cambia esto por la ruta de tu imagen */
+    background-image: url('.jpg'); /* Cambia esto por la ruta de tu imagen */
     background-size: cover;       /* Hace que la imagen cubra toda la sección */
     background-position: center;  /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que se repita */
