@@ -37,15 +37,19 @@ header nav a {
 }
 
 .hero {
+    background-image: url('fondokali.jpg'); /* Cambia esto por la ruta de tu imagen */
+    background-size: cover;       /* Hace que la imagen cubra toda la sección */
+    background-position: center;  /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita */
+    height: 400px;                /* Altura de la sección */
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    color: #fff;                  /* Texto en blanco */
     text-align: center;
-    padding: 4rem 2rem;
-    background-size: cover;
-    background-position: center;
 }
+
 
 .hero h1 {
     font-family: 'Montserrat', sans-serif;
