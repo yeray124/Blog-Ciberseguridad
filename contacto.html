@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - CyberSec Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <h2>CyberSec Blog</h2>
+    </div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#">Herramientas</a>
+        <a href="#">Sistemas Operativos</a>
+        <a href="#">Tutoriales</a>
+        <a href="#">Noticias</a>
+        <a href="#">Recursos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero" style="background-image: url('https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1400&q=80');">
+    <h1>Contacto</h1>
+    <p>Ponte en contacto con nosotros para dudas, sugerencias o colaboraciones.</p>
+</section>
+
+<div class="container">
+    <div class="main-content">
+        <div class="card">
+            <div class="card-content">
+                <h3>Formulario de Contacto</h3>
+                <form>
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" style="width:100%; padding:0.5rem; border-radius:5px; border:none; margin-bottom:1rem;"><br>
+
+                    <label for="email">Correo electrónico:</label><br>
+                    <input type="email" id="email" name="email" style="width:100%; padding:0.5rem; border-radius:5px; border:none; margin-bottom:1rem;"><br>
+
+                    <label for="mensaje">Mensaje:</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="5" style="width:100%; padding:0.5rem; border-radius:5px; border:none; margin-bottom:1rem;"></textarea><br>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="widget">
+            <h4>Información</h4>
+            <p>Email: contacto@cybersecblog.com</p>
+            <p>Teléfono: +34 600 123 456</p>
+            <p>Ubicación: España</p>
+        </div>
+        <div class="widget">
+            <h4>Síguenos</h4>
+            <ul>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">GitHub</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <p>© 2025 CyberSec Blog. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

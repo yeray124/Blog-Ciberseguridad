@@ -1,0 +1,149 @@
+/* Colores y tipografía */
+:root {
+    --azul-oscuro: #0D1B2A;
+    --azul-electrico: #1B263B;
+    --verde-neon: #00FFAB;
+    --gris-oscuro: #121212;
+    --blanco: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+}
+
+a {
+    color: var(--verde-neon);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--azul-electrico);
+}
+
+header nav a {
+    margin: 0 1rem;
+    font-weight: 600;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero button {
+    padding: 0.8rem 2rem;
+    background-color: var(--verde-neon);
+    color: var(--azul-oscuro);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    gap: 2rem;
+}
+
+.main-content {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--gris-oscuro);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.card-content a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.widget {
+    background-color: var(--azul-electrico);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.widget h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--azul-electrico);
+    margin-top: 4rem;
+}
+
+@media(max-width: 768px){
+    .container {
+        flex-direction: column;
+    }
+}
