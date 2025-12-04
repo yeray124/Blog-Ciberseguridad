@@ -147,3 +147,46 @@ footer {
         flex-direction: column;
     }
 }
+
+.perfil-img {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 2rem 0;
+    border: 4px solid #559b59;
+}
+
+
+/* Responsive: reducir tamaño solo en pantallas muy pequeñas */
+@media(max-width: 600px) {
+    .perfil-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .sobre-mi-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .story-card, .contact-card {
+        flex: 1 1 100%;
+    }
+}
+/* ICONOS */
+/* Hero de contacto con color de fondo sólido */
+.hero-contact {
+    background-color: var(--azul-electrico); /* mismo color que usas en header/footer */
+    color: var(--blanco);
+    text-align: center;
+    padding: 2rem 2rem;
+    position: relative;
+}
+
+/* Icono de correo */
+.hero-contact .email-icon {
+    font-size: 15rem;       /* tamaño grande */
+    color: var(--verde-neon); /* color verde neon */
+    margin-top: 2rem;
+}
