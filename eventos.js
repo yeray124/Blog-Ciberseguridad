@@ -2,6 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Script cargado - Inicializando menú...");
 
     /* --------------------------------------------------
+       VARIABLES GLOBALES
+    -------------------------------------------------- */
+    let isMobile = window.innerWidth <= 768;
+
+    /* --------------------------------------------------
+       DETECCIÓN DE MÓVIL
+    -------------------------------------------------- */
+    window.addEventListener('resize', () => {
+        isMobile = window.innerWidth <= 768;
+    });
+
+    /* --------------------------------------------------
        MENÚ HAMBURGUESA - VERSIÓN CORREGIDA
     -------------------------------------------------- */
     const menuBtn = document.querySelector('.menu-toggle');
@@ -27,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function(e) {
                 // Solo cerrar si NO es un dropdown-toggle y estamos en móvil
-                if (window.innerWidth <= 768 && !this.classList.contains('drop-toggle')) {
+                if (isMobile && !this.classList.contains('drop-toggle')) {
                     console.log("Cerrar menú por clic en enlace normal");
                     navMenu.classList.remove('open');
                     menuBtn.classList.remove('open');
@@ -38,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Cerrar menú al hacer clic fuera (sólo en móvil)
         document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
+            if (isMobile) {
                 if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
                     navMenu.classList.remove('open');
                     menuBtn.classList.remove('open');
@@ -58,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* --------------------------------------------------
-       DROPDOWN EN MÓVIL - VERSIÓN MEJORADA CON DEBOUNCE
+       DROPDOWN EN MÓVIL - VERSIÓN MEJORADA
     -------------------------------------------------- */
     let dropdownClickTime = 0;
     
@@ -68,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (toggle && menu) {
             toggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
+                if (isMobile) {
                     e.preventDefault();
                     e.stopPropagation();
                     
@@ -109,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Cerrar dropdown si se hace clic en un enlace dentro de él
             menu.querySelectorAll('a').forEach(dropLink => {
                 dropLink.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
+                    if (isMobile) {
                         console.log("Clic en enlace del dropdown - cerrar ambos");
                         // Cerrar dropdown
                         menu.classList.remove('open');
@@ -130,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
        MEJORA: CERRAR DROPDOWN AL TOCAR FUERA DE ÉL
     -------------------------------------------------- */
     document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
+        if (isMobile) {
             document.querySelectorAll('.dropdown').forEach(drop => {
                 const toggle = drop.querySelector('.drop-toggle');
                 const menu = drop.querySelector('.dropdown-menu');
@@ -145,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* --------------------------------------------------
-       FILTRO + ORDENAMIENTO DE NOTICIAS
+       FILTRO + ORDENAMIENTO DE NOTICIAS - VERSIÓN CORREGIDA
     -------------------------------------------------- */
     const searchInput = document.getElementById("search");
     const filterSelect = document.getElementById("filter");
@@ -153,51 +165,186 @@ document.addEventListener("DOMContentLoaded", () => {
     const cards = Array.from(document.querySelectorAll(".news-card"));
 
     if (searchInput && filterSelect && newsGrid && cards.length > 0) {
+        console.log("Filtro de búsqueda inicializado");
+        
+        // Verificar que las tarjetas tengan data-date
+        cards.forEach((card, index) => {
+            if (!card.dataset.date) {
+                console.warn(`Tarjeta ${index} no tiene data-date, asignando fecha por defecto`);
+                // Intentar obtener fecha del texto
+                const dateText = card.querySelector('.date')?.textContent;
+                if (dateText) {
+                    try {
+                        const parts = dateText.split('/');
+                        if (parts.length === 3) {
+                            // Formato: DD/MM/YYYY a YYYY-MM-DD
+                            card.dataset.date = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+                            console.log(`Fecha asignada: ${card.dataset.date}`);
+                        }
+                    } catch (error) {
+                        console.error(`Error al parsear fecha: ${dateText}`, error);
+                        card.dataset.date = '2025-01-01'; // Fecha por defecto
+                    }
+                } else {
+                    card.dataset.date = '2025-01-01'; // Fecha por defecto
+                }
+            }
+        });
+
         // Filtrar por texto
         function filterCards() {
-            const text = searchInput.value.toLowerCase();
+            const text = searchInput.value.toLowerCase().trim();
+            console.log(`Buscando: "${text}"`);
+            
+            let visibleCount = 0;
+            
             cards.forEach(card => {
-                const title = card.querySelector("h3").textContent.toLowerCase();
-                const desc = card.querySelector("p").textContent.toLowerCase();
-                card.style.display = (title.includes(text) || desc.includes(text)) ? "block" : "none";
+                const title = card.querySelector("h3")?.textContent.toLowerCase() || '';
+                const desc = card.querySelector("p")?.textContent.toLowerCase() || '';
+                const show = title.includes(text) || desc.includes(text);
+                
+                card.style.display = show ? 'block' : 'none';
+                
+                if (show) {
+                    visibleCount++;
+                    console.log(`Mostrando: "${title.substring(0, 30)}..."`);
+                }
             });
+            
+            console.log(`Total visible: ${visibleCount} de ${cards.length}`);
         }
 
         // Ordenar por fecha
         function sortCards() {
             const sortBy = filterSelect.value;
-            const visibleCards = cards.filter(card => card.style.display !== "none");
-
+            console.log(`Ordenando por: ${sortBy === 'recent' ? 'Más recientes' : 'Más antiguos'}`);
+            
+            const visibleCards = cards.filter(card => card.style.display !== 'none');
+            
             visibleCards.sort((a, b) => {
-                const dateA = new Date(a.dataset.date);
-                const dateB = new Date(b.dataset.date);
-                return sortBy === "recent" ? dateB - dateA : dateA - dateB;
+                try {
+                    const dateA = new Date(a.dataset.date || '2025-01-01');
+                    const dateB = new Date(b.dataset.date || '2025-01-01');
+                    
+                    if (sortBy === "recent") {
+                        return dateB - dateA; // Más recientes primero
+                    } else {
+                        return dateA - dateB; // Más antiguos primero
+                    }
+                } catch (error) {
+                    console.error("Error al ordenar fechas:", error);
+                    return 0;
+                }
             });
 
-            visibleCards.forEach(card => newsGrid.appendChild(card));
+            // Reordenar en el DOM
+            visibleCards.forEach(card => {
+                newsGrid.appendChild(card);
+            });
+            
+            console.log(`Reordenadas ${visibleCards.length} tarjetas`);
         }
 
-        // Eventos
+        // Eventos del filtro
         searchInput.addEventListener("input", () => {
+            console.log("Input cambiado");
             filterCards();
             sortCards();
         });
 
-        filterSelect.addEventListener("change", sortCards);
-        sortCards();
+        filterSelect.addEventListener("change", function() {
+            console.log(`Select cambiado a: ${this.value}`);
+            sortCards();
+        });
+
+        // Orden inicial
+        setTimeout(() => {
+            console.log("Orden inicial aplicada");
+            filterCards();
+            sortCards();
+        }, 100);
+    } else {
+        console.warn("Elementos del filtro no encontrados");
+        console.log({
+            searchInput: !!searchInput,
+            filterSelect: !!filterSelect,
+            newsGrid: !!newsGrid,
+            cards: cards.length
+        });
+    }
+
+    /* --------------------------------------------------
+       MANEJO MEJORADO DEL SELECT (desplegable)
+    -------------------------------------------------- */
+    // Ya tenemos filterSelect definido arriba, solo agregamos manejo especial
+    if (filterSelect) {
+        console.log("Select encontrado, agregando manejo especial...");
+        
+        // Prevenir problemas de doble evento
+        let selectClickTime = 0;
+        const SELECT_CLICK_DELAY = 200;
+        
+        // Evento simple para el select (para debugging)
+        filterSelect.addEventListener('click', function(e) {
+            const now = Date.now();
+            if (now - selectClickTime < SELECT_CLICK_DELAY) {
+                e.stopPropagation();
+                return;
+            }
+            selectClickTime = now;
+            console.log("Select clickeado - abriendo opciones");
+        });
+        
+        // Cerrar select al hacer clic fuera (solo en móvil)
+        document.addEventListener('click', function(e) {
+            if (isMobile && e.target !== filterSelect) {
+                // Forzar blur para cerrar el select en móvil
+                filterSelect.blur();
+            }
+        });
+        
+        // Debug: mostrar cuando cambia el valor
+        filterSelect.addEventListener('change', function() {
+            console.log(`DEBUG: Select cambiado a "${this.value}" - Evento fired`);
+        });
+    }
+
+    /* --------------------------------------------------
+       BOTÓN DE BÚSQUEDA
+    -------------------------------------------------- */
+    const searchButton = document.querySelector('.search-filters button');
+    if (searchButton) {
+        searchButton.addEventListener('click', () => {
+            console.log("Botón de búsqueda clickeado");
+            if (searchInput) {
+                searchInput.focus();
+            }
+        });
     }
 
     /* --------------------------------------------------
        CERRAR DROPDOWNS AL CAMBIAR TAMAÑO DE VENTANA
     -------------------------------------------------- */
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
+        if (!isMobile) { // Si cambiamos a desktop
             document.querySelectorAll('.dropdown-menu.open').forEach(menu => {
                 menu.classList.remove('open');
             });
             document.querySelectorAll('.drop-toggle.open').forEach(toggle => {
                 toggle.classList.remove('open');
             });
+            
+            // También cerrar menú móvil si está abierto
+            if (navMenu && menuBtn) {
+                navMenu.classList.remove('open');
+                menuBtn.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            }
         }
+        
+        // Actualizar estado de móvil
+        isMobile = window.innerWidth <= 768;
     });
+
+    console.log("Inicialización completa - Todo listo!");
 });

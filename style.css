@@ -162,11 +162,12 @@ nav.nav-links .drop-toggle:hover {
     margin-top: 1rem;
 }
 
-/* ------------------ BUSCADOR ------------------ */
+/* ================== BUSCADOR MEJORADO ================== */
 .search-filters-container {
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
+    margin: 3rem 0 2rem;
+    padding: 0 1rem;
 }
 
 .search-filters {
@@ -174,65 +175,185 @@ nav.nav-links .drop-toggle:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     max-width: 1200px;
     width: 100%;
-    padding: 0 1rem;
+    background: rgba(27, 38, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 255, 171, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.search-filters input[type="text"],
-.search-filters select,
-.search-filters button {
-    padding: 0.6rem 0.8rem;
-    border-radius: 8px;
-    border: 1px solid #2a3b5c;
-    background-color: var(--azul-electrico);
-    color: var(--blanco);
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-
+/* Input de búsqueda mejorado */
 .search-filters input[type="text"] {
     flex: 1 1 300px;
-    min-width: 200px;
-    border: 2px solid #2a3b5c;
+    min-width: 250px;
+    padding: 0.85rem 1.2rem;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 255, 171, 0.3);
+    background: rgba(13, 27, 42, 0.8);
+    color: var(--blanco);
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.search-filters input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-filters input[type="text"]:hover {
+    border-color: rgba(0, 255, 171, 0.5);
+    box-shadow: 0 6px 16px rgba(0, 255, 171, 0.1);
 }
 
 .search-filters input[type="text"]:focus {
     outline: none;
     border-color: var(--verde-neon);
-    box-shadow: 0 0 0 2px rgba(0, 255, 171, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 255, 171, 0.2),
+                0 8px 24px rgba(0, 255, 171, 0.15);
+    background: rgba(13, 27, 42, 0.9);
+    transform: translateY(-2px);
 }
 
+/* Select (desplegable) - VERSIÓN OPTIMIZADA PARA MÓVIL */
 .search-filters select {
-    flex: 0 1 180px;
+    flex: 0 1 200px;
+    min-width: 180px;
+    padding: 0.85rem 3rem 0.85rem 1.2rem;
+    border-radius: 12px;
+    border: 2px solid rgba(0, 255, 171, 0.3);
+    background-color: rgba(13, 27, 42, 0.8);
+    color: var(--blanco);
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
     cursor: pointer;
+    
+    /* Reset completo de estilos nativos */
     appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Flecha personalizada */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300FFAB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
-    background-position: right 0.7rem center;
+    background-position: right 1rem center;
     background-size: 1.2rem;
-    padding-right: 2.5rem;
+    
+    /* Transición simple */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para las opciones (no aplica en todos los navegadores) */
+.search-filters select option {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    padding: 12px;
+}
+
+/* Hover y focus */
+.search-filters select:hover {
+    border-color: rgba(0, 255, 171, 0.5);
+    box-shadow: 0 6px 16px rgba(0, 255, 171, 0.1);
 }
 
 .search-filters select:focus {
     outline: none;
     border-color: var(--verde-neon);
+    box-shadow: 0 0 0 3px rgba(0, 255, 171, 0.2);
+    background-color: rgba(13, 27, 42, 0.9);
 }
 
+/* Botón de búsqueda mejorado */
 .search-filters button {
-    background-color: var(--verde-neon);
-    color: var(--azul-oscuro);
+    flex: 0 1 140px;
+    min-width: 120px;
+    padding: 0.85rem 1.5rem;
+    border-radius: 12px;
     border: 2px solid var(--verde-neon);
-    font-weight: 600;
+    background: var(--verde-neon);
+    color: var(--azul-oscuro);
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
     cursor: pointer;
-    flex: 0 1 120px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 255, 171, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .search-filters button:hover {
-    background-color: transparent;
+    background: transparent;
     color: var(--verde-neon);
+    box-shadow: 0 6px 20px rgba(0, 255, 171, 0.4);
+    transform: translateY(-3px);
+}
+
+.search-filters button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 255, 171, 0.3);
+}
+
+/* Efecto de enfoque para todos los elementos */
+.search-filters input:focus,
+.search-filters select:focus,
+.search-filters button:focus {
+    outline: none;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 171, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(0, 255, 171, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 171, 0);
+    }
+}
+
+/* ================== MEDIA QUERIES PARA EL BUSCADOR ================== */
+
+/* Tablet (992px - 768px) */
+@media (max-width: 992px) {
+    .search-filters-container {
+        margin: 2.5rem 0 1.5rem;
+    }
+    
+    .search-filters {
+        gap: 0.9rem;
+        padding: 1.2rem;
+        border-radius: 14px;
+    }
+    
+    .search-filters input[type="text"] {
+        flex: 1 1 100%;
+        min-width: 0;
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .search-filters select {
+        flex: 1 1 calc(50% - 0.45rem);
+        min-width: 0;
+        font-size: 0.95rem;
+        padding: 0.75rem 2.8rem 0.75rem 1rem;
+        background-size: 1.1rem;
+    }
+    
+    .search-filters button {
+        flex: 1 1 calc(50% - 0.45rem);
+        font-size: 0.95rem;
+        padding: 0.75rem 1.2rem;
+    }
 }
 
 /* ------------------ CONTENEDORES PRINCIPALES ------------------ */
@@ -437,6 +558,20 @@ nav.nav-links .drop-toggle:hover {
     }
 }
 
+/* Animación suave para el dropdown */
+@keyframes smoothSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 300px;
+    }
+}
+
 /* ================== MEDIA QUERIES (RESPONSIVE) ================== */
 
 /* TABLET (992px - 768px) */
@@ -449,30 +584,16 @@ nav.nav-links .drop-toggle:hover {
     .news-grid { 
         grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); 
     }
-    
-    .search-filters {
-        gap: 0.75rem;
-        justify-content: stretch;
-    }
-    
-    .search-filters input[type="text"] {
-        flex: 1 1 100%;
-        min-width: 0;
-    }
-    
-    .search-filters select,
-    .search-filters button {
-        flex: 1 1 calc(50% - 0.375rem);
-    }
 }
 
-/* MÓVIL (768px o menos) - BOTÓN HAMBURGUESA VISIBLE */
+/* MÓVIL (768px o menos) - TODAS LAS MEJORAS AQUÍ */
 @media (max-width: 768px) {
     /* MOSTRAR BOTÓN HAMBURGUESA */
     .menu-toggle {
-        display: flex !important;  /* MUY IMPORTANTE: Forzar visibilidad */
+        display: flex !important;
         visibility: visible !important;
         order: 2;
+        background: rgba(255, 255, 255, 0.1);
     }
 
     .logo { 
@@ -482,18 +603,18 @@ nav.nav-links .drop-toggle:hover {
 
     /* OCULTAR MENÚ NORMAL, MOSTRAR SÓLO CON .open */
     nav.nav-links {
-        display: none !important; /* Oculto por defecto */
+        display: none !important;
         position: fixed;
-        top: 70px; /* Altura del header */
-        right: 15px;
-        left: 15px;
+        top: 70px;
+        right: 10px;
+        left: 10px;
         background: var(--azul-electrico);
         border-radius: 10px;
         padding: 0.5rem 0;
         flex-direction: column;
         gap: 0;
-        width: calc(100% - 30px);
-        z-index: 9999; /* Alto z-index */
+        width: calc(100% - 20px);
+        z-index: 9999;
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         max-height: 70vh;
         overflow-y: auto;
@@ -517,6 +638,7 @@ nav.nav-links .drop-toggle:hover {
         justify-content: space-between;
         align-items: center;
         font-size: 1rem;
+        min-height: 50px; /* Mejor touch */
     }
 
     nav.nav-links a:hover,
@@ -532,18 +654,17 @@ nav.nav-links .drop-toggle:hover {
 
     /* Flecha para dropdown en móvil */
     .drop-toggle::after {
-        content: "▼";
+        content: "▶";
         font-size: 0.7rem;
         margin-left: 0.5rem;
         transition: transform 0.3s ease;
     }
 
     .drop-toggle.open::after {
-        transform: rotate(180deg);
+        content: "▼";
+        transform: rotate(0deg);
     }
 
-    /* Dropdown en móvil */
- @media (max-width: 768px) {
     /* Indicador visual de que el dropdown está abierto */
     .drop-toggle.open {
         background: rgba(0, 255, 171, 0.2) !important;
@@ -558,53 +679,48 @@ nav.nav-links .drop-toggle:hover {
         overflow: hidden;
         opacity: 0;
         transform: translateY(-10px);
+        position: static !important;
+        background: rgba(0, 0, 0, 0.2);
+        border-left: 3px solid var(--verde-neon);
+        margin: 0.5rem 1rem;
+        box-shadow: none;
+        padding: 0;
     }
     
     .dropdown-menu.open {
         max-height: 300px;
         opacity: 1;
         transform: translateY(0);
-        animation: none !important; /* Quitar animación conflictiva */
+        animation: smoothSlideDown 0.3s ease !important;
+        padding: 0.5rem 1rem;
     }
     
-    /* Flecha que rota cuando está abierto */
-    .drop-toggle::after {
-        content: "▶";
-        font-size: 0.7rem;
-        margin-left: 0.5rem;
-        transition: transform 0.3s ease;
+    .dropdown-menu.open a {
+        color: var(--verde-neon);
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        min-height: 44px; /* Mejor touch */
+        display: flex;
+        align-items: center;
     }
     
-    .drop-toggle.open::after {
-        content: "▼";
-        transform: rotate(0deg);
+    .dropdown-menu.open a:last-child {
+        border-bottom: none;
     }
-}
 
-/* Animación suave para el dropdown */
-@keyframes slideDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-        max-height: 0;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        max-height: 300px;
-    }
-}
-
-    /* Ajustes del buscador para móvil */
+    /* ========== BUSCADOR EN MÓVIL - MEJORAS CRÍTICAS ========== */
     .search-filters-container {
-        margin: 1.5rem 0;
+        margin: 2rem 0 1rem;
+        padding: 0 0.75rem;
     }
     
     .search-filters {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 1rem;
         align-items: stretch;
-        padding: 0 0.5rem;
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
     }
     
     .search-filters input[type="text"],
@@ -612,29 +728,84 @@ nav.nav-links .drop-toggle:hover {
     .search-filters button {
         width: 100%;
         flex: 1 1 auto;
-        padding: 0.7rem 0.9rem;
+        padding: 0.85rem 1rem;
         font-size: 1rem;
+        border-radius: 10px;
+        min-height: 48px; /* Mínimo para buen touch en móvil */
+        -webkit-tap-highlight-color: rgba(0, 255, 171, 0.3);
     }
     
     .search-filters input[type="text"] {
         order: 1;
+        border-width: 2px;
     }
     
+    /* SELECT EN MÓVIL - ARREGLOS ESPECIALES */
     .search-filters select {
         order: 2;
-        background-position: right 0.9rem center;
+        background-position: right 12px center;
+        background-size: 18px;
+        border-width: 2px;
+        
+        /* Reset total para móvil */
+        transform: none !important;
+        transition: none !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+        
+        /* Mejorar usabilidad táctil */
+        touch-action: manipulation;
+        -webkit-touch-callout: none;
+        
+        /* IMPORTANTE: Evitar zoom en iOS */
+        font-size: 16px !important;
+        
+        /* Forzar estilo nativo en móvil para mejor compatibilidad */
+        -webkit-appearance: menulist-button;
+        -moz-appearance: menulist-button;
+        appearance: menulist-button;
+    }
+    
+    /* Quitar efectos problemáticos en móvil */
+    .search-filters select:hover,
+    .search-filters select:focus {
+        transform: none !important;
+        animation: none !important;
+    }
+    
+    .search-filters select:focus {
+        border-color: var(--verde-neon);
+        box-shadow: 0 0 0 3px rgba(0, 255, 171, 0.3) !important;
     }
     
     .search-filters button {
         order: 3;
-        margin-top: 0.25rem;
+        margin-top: 0.5rem;
+        border-width: 2px;
+        font-size: 16px; /* Tamaño consistente en móvil */
+    }
+    
+    /* Reducir efectos en móvil para mejor rendimiento */
+    .search-filters input[type="text"]:hover,
+    .search-filters select:hover,
+    .search-filters button:hover {
+        transform: none;
+    }
+    
+    .search-filters input[type="text"]:focus {
+        transform: translateY(-1px);
+    }
+    
+    .search-filters button:hover {
+        transform: translateY(-2px);
     }
 
     /* Otros ajustes para móvil */
     .hero {
         height: auto;
         padding: 2rem 1rem;
+        min-height: 250px;
     }
+    
     .hero h1 { 
         font-size: 1.8rem; 
         line-height: 1.3;
@@ -658,10 +829,11 @@ nav.nav-links .drop-toggle:hover {
     }
 }
 
-/* MÓVILES PEQUEÑOS (480px o menos) */
+/* MÓVILES PEQUEÑOS (hasta 480px) */
 @media (max-width: 480px) {
     header { 
         padding: 0.8rem 1rem; 
+        min-height: 60px;
     }
     
     .logo h2 {
@@ -670,27 +842,93 @@ nav.nav-links .drop-toggle:hover {
     
     .hero h1 { 
         font-size: 1.5rem; 
+        padding: 0 1rem;
     }
     
     .hero p {
         font-size: 0.95rem;
+        padding: 0 1rem;
     }
     
     nav.nav-links {
-        top: 65px;
-        right: 10px;
-        left: 10px;
-        width: calc(100% - 20px);
+        top: 60px; /* Ajustado a header más pequeño */
+        right: 8px;
+        left: 8px;
+        width: calc(100% - 16px);
+        max-height: calc(100vh - 70px);
+    }
+    
+    .search-filters-container {
+        margin: 1.5rem 0 1rem;
+        padding: 0 0.5rem;
     }
     
     .search-filters {
-        padding: 0 0.25rem;
+        padding: 1.2rem 0.8rem;
+        gap: 0.8rem;
+        border-radius: 10px;
     }
     
     .search-filters input[type="text"],
     .search-filters select,
     .search-filters button {
-        padding: 0.65rem 0.8rem;
+        padding: 0.75rem 0.9rem;
+        font-size: 16px; /* Fijo para evitar zoom */
+        border-radius: 8px;
+        min-height: 44px;
+    }
+    
+    .search-filters select {
+        background-position: right 10px center;
+        background-size: 16px;
+    }
+    
+    .search-filters button {
         font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+        min-height: 44px;
+    }
+}
+
+/* MÓVILES MUY PEQUEÑOS (hasta 360px) */
+@media (max-width: 360px) {
+    .search-filters {
+        padding: 1rem 0.6rem;
+        gap: 0.7rem;
+    }
+    
+    .search-filters input[type="text"],
+    .search-filters select,
+    .search-filters button {
+        padding: 0.7rem 0.8rem;
+        font-size: 15px;
+        min-height: 42px;
+    }
+    
+    .search-filters select {
+        background-position: right 8px center;
+        background-size: 14px;
+    }
+}
+
+/* ESTILOS ESPECIALES PARA SAFARI iOS */
+@supports (-webkit-touch-callout: none) {
+    /* Safari iOS específico */
+    .search-filters select {
+        padding-right: 40px !important; /* Más espacio para flecha nativa */
+        line-height: 1.5; /* Mejor alineación vertical */
+    }
+}
+
+/* MEJORAS DE ACCESIBILIDAD */
+.search-filters select:focus-visible {
+    outline: 2px solid var(--verde-neon);
+    outline-offset: 2px;
+}
+
+/* PREVENIR PROBLEMAS DE RENDIMIENTO EN MÓVIL */
+@media (max-width: 768px) and (hover: none) {
+    .search-filters select:hover {
+        border-color: rgba(0, 255, 171, 0.3); /* Mantener color original */
     }
 }
