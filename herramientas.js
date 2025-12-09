@@ -1,124 +1,148 @@
-// Datos de las herramientas
+// Datos de las herramientas (todas gratuitas)
 const toolsData = [
     {
         id: 1,
         name: "Nmap",
         category: "escaneo",
         description: "Herramienta de código abierto para exploración de red y auditoría de seguridad. Detecta hosts y servicios en una red informática.",
-        license: "free",
+        license: "GPL",
         platform: "Multiplataforma",
         features: ["Escaneo de puertos", "Detección de servicios", "Detección de OS", "Scripting NSE"],
-        link: "#nmap"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#nmap",
+        difficulty: "beginner"
     },
     {
         id: 2,
         name: "Wireshark",
         category: "analisis",
         description: "Analizador de protocolos de red más utilizado en el mundo. Permite capturar y analizar tráfico de red en tiempo real.",
-        license: "free",
+        license: "GPL",
         platform: "Multiplataforma",
         features: ["Captura en tiempo real", "Análisis profundo", "Filtrado avanzado", "Soporte múltiples protocolos"],
-        link: "#wireshark"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#wireshark",
+        difficulty: "intermediate"
     },
     {
         id: 3,
-        name: "Burp Suite",
+        name: "Burp Suite Community",
         category: "web",
-        description: "Plataforma integral para pruebas de seguridad de aplicaciones web. Incluye herramientas para cada etapa del proceso de testing.",
-        license: "premium",
+        description: "Versión gratuita del famoso toolkit para pruebas de seguridad de aplicaciones web. Incluye las herramientas esenciales.",
+        license: "Community",
         platform: "Multiplataforma",
-        features: ["Proxy intercept", "Scanner automático", "Intruder", "Repeater"],
-        link: "#burp"
+        features: ["Proxy intercept", "Scanner básico", "Repeater", "Intruder"],
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#burp",
+        difficulty: "intermediate"
     },
     {
         id: 4,
-        name: "Metasploit",
+        name: "Metasploit Framework",
         category: "exploit",
         description: "Framework de desarrollo y testing de exploits que proporciona información sobre vulnerabilidades de seguridad.",
-        license: "free",
+        license: "BSD",
         platform: "Multiplataforma",
         features: ["Base de datos de exploits", "Payloads", "Auxiliares", "Post-explotación"],
-        link: "#metasploit"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#metasploit",
+        difficulty: "intermediate"
     },
     {
         id: 5,
         name: "John the Ripper",
-        category: "forense",
+        category: "cracking",
         description: "Herramienta de recuperación de contraseñas de código abierto. Detecta contraseñas débiles en Unix, Windows y más.",
-        license: "free",
+        license: "GPL",
         platform: "Multiplataforma",
         features: ["Crackeo offline", "Múltiples modos", "Soporte GPU", "Auto-detección"],
-        link: "#john"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#john",
+        difficulty: "intermediate"
     },
     {
         id: 6,
         name: "Aircrack-ng",
         category: "monitoring",
         description: "Suite completa de herramientas para evaluar la seguridad de redes WiFi. Incluye captura de paquetes y ataques WEP/WPA.",
-        license: "free",
+        license: "GPL",
         platform: "Linux/Windows/macOS",
         features: ["Captura de paquetes", "Ataques WEP/WPA", "Inyección de tráfico", "Test de rendimiento"],
-        link: "#aircrack"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#aircrack",
+        difficulty: "advanced"
     },
     {
         id: 7,
         name: "Hydra",
-        category: "escaneo",
+        category: "cracking",
         description: "Herramienta de fuerza bruta paralelizada que soporta numerosos protocolos de ataque. Muy rápida y flexible.",
-        license: "free",
+        license: "GPL",
         platform: "Multiplataforma",
         features: ["Múltiples protocolos", "Ataque paralelo", "Listas personalizadas", "Reintentos"],
-        link: "#hydra"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#hydra",
+        difficulty: "intermediate"
     },
     {
         id: 8,
         name: "Snort",
         category: "monitoring",
         description: "Sistema de detección de intrusiones (IDS) de código abierto que monitorea el tráfico de red en tiempo real.",
-        license: "free",
+        license: "GPL",
         platform: "Multiplataforma",
         features: ["Detección en tiempo real", "Análisis de protocolos", "Reglas personalizables", "Alerta y logging"],
-        link: "#snort"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#snort",
+        difficulty: "advanced"
     },
     {
         id: 9,
-        name: "Maltego",
+        name: "Maltego CE",
         category: "escaneo",
-        description: "Herramienta de análisis de enlaces que realiza minería de información de fuentes abiertas (OSINT) de manera gráfica.",
-        license: "premium",
+        description: "Versión Community Edition de la herramienta de análisis de enlaces para OSINT. Limitada pero muy poderosa.",
+        license: "Proprietary Free",
         platform: "Multiplataforma",
-        features: ["Visualización gráfica", "OSINT automatizado", "Transformaciones", "Integración APIs"],
-        link: "#maltego"
+        features: ["Visualización gráfica", "OSINT básico", "Transformaciones limitadas", "Para individuos"],
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#maltego",
+        difficulty: "intermediate"
     },
     {
         id: 10,
         name: "Volatility",
         category: "forense",
         description: "Framework avanzado de análisis forense de memoria. Extrae información de volcados de memoria RAM.",
-        license: "free",
+        license: "GPL",
         platform: "Multiplataforma",
         features: ["Análisis de memoria", "Plugins extensibles", "Soporte múltiples OS", "Artefactos forenses"],
-        link: "#volatility"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#volatility",
+        difficulty: "advanced"
     },
     {
         id: 11,
         name: "OWASP ZAP",
         category: "web",
         description: "Herramienta de seguridad de aplicaciones web de código abierto. Ideal para desarrolladores y testers funcionales.",
-        license: "free",
+        license: "Apache 2.0",
         platform: "Multiplataforma",
         features: ["Interceptación proxy", "Escáner automático", "Spidering", "API REST"],
-        link: "#zap"
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#zap",
+        difficulty: "beginner"
     },
     {
         id: 12,
-        name: "Nessus",
+        name: "Nessus Essentials",
         category: "escaneo",
-        description: "Vulnerability scanner comercial ampliamente utilizado. Detecta vulnerabilidades, configuraciones erróneas y más.",
-        license: "premium",
+        description: "Versión gratuita del vulnerability scanner. Escanea hasta 16 IPs y es ideal para aprendizaje y proyectos personales.",
+        license: "Free for Home Use",
         platform: "Multiplataforma",
-        features: ["Escaneo completo", "Base de datos actualizada", "Reporting avanzado", "Soporte empresarial"],
-        link: "#nessus"
+        features: ["Escaneo básico", "Base de datos actualizada", "Reporting limitado", "Para uso personal"],
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        link: "#nessus",
+        difficulty: "intermediate"
     }
 ];
 
@@ -129,7 +153,7 @@ const searchInput = document.getElementById('tool-search');
 const searchBtn = document.getElementById('search-btn');
 const totalToolsElement = document.getElementById('total-tools');
 const freeToolsElement = document.getElementById('free-tools');
-const premiumToolsElement = document.getElementById('premium-tools');
+const openSourceElement = document.getElementById('open-source');
 const updatedToolsElement = document.getElementById('updated-tools');
 
 // Inicialización
@@ -142,13 +166,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // Actualizar estadísticas
 function updateStats() {
     const totalTools = toolsData.length;
-    const freeTools = toolsData.filter(tool => tool.license === 'free').length;
-    const premiumTools = toolsData.filter(tool => tool.license === 'premium').length;
+    const openSourceCount = toolsData.filter(tool => 
+        tool.license === 'GPL' || tool.license === 'BSD' || tool.license === 'Apache 2.0'
+    ).length;
     
     totalToolsElement.textContent = totalTools;
-    freeToolsElement.textContent = freeTools;
-    premiumToolsElement.textContent = premiumTools;
-    updatedToolsElement.textContent = 10; // Valor fijo para demo
+    freeToolsElement.textContent = totalTools; // Todas son gratuitas
+    openSourceElement.textContent = openSourceCount;
+    updatedToolsElement.textContent = totalTools; // Todas actualizadas para 2025
 }
 
 // Renderizar herramientas
@@ -177,12 +202,14 @@ function createToolCard(tool) {
     card.className = 'tool-card';
     card.dataset.category = tool.category;
     card.dataset.name = tool.name.toLowerCase();
+    card.dataset.difficulty = tool.difficulty;
     
     const featuresHTML = tool.features.map(feature => 
         `<li>${feature}</li>`
     ).join('');
     
     card.innerHTML = `
+        <img src="${tool.image}" alt="${tool.name}" class="tool-image" onerror="this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
         <div class="tool-header">
             <span class="tool-badge">${getCategoryName(tool.category)}</span>
             <h3 class="tool-title">${tool.name}</h3>
@@ -194,12 +221,26 @@ function createToolCard(tool) {
         </div>
         <div class="tool-footer">
             <div class="tool-meta">
-                <span class="tool-license ${tool.license}">${tool.license === 'free' ? 'Gratuita' : 'Premium'}</span>
+                <span class="tool-license">${tool.license}</span>
                 <span class="tool-platform">${tool.platform}</span>
             </div>
             <div class="tool-actions">
-                <button class="tool-btn details" onclick="showToolDetails(${tool.id})">Detalles</button>
-                <button class="tool-btn" onclick="window.location.href='${tool.link}'">Ver más</button>
+                <button class="tool-btn details" onclick="showToolDetails(${tool.id})">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 16v-4"/>
+                        <path d="M12 8h.01"/>
+                    </svg>
+                    Detalles
+                </button>
+                <button class="tool-btn" onclick="window.location.href='${tool.link}'">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    Ver más
+                </button>
             </div>
         </div>
     `;
@@ -215,7 +256,8 @@ function getCategoryName(category) {
         'web': 'Web',
         'exploit': 'Explotación',
         'forense': 'Forense',
-        'monitoring': 'Monitoreo'
+        'monitoring': 'Monitoreo',
+        'cracking': 'Password Cracking'
     };
     return categories[category] || category;
 }
@@ -228,7 +270,8 @@ function getCategoryDescription(category) {
         'web': 'Seguridad Web',
         'exploit': 'Herramientas de Explotación',
         'forense': 'Análisis Forense Digital',
-        'monitoring': 'Monitoreo y Detección'
+        'monitoring': 'Monitoreo y Detección',
+        'cracking': 'Password Cracking'
     };
     return descriptions[category] || 'Herramienta de Ciberseguridad';
 }
@@ -253,7 +296,9 @@ function searchTools(query) {
         tool.name.toLowerCase().includes(searchTerm) ||
         tool.description.toLowerCase().includes(searchTerm) ||
         tool.category.includes(searchTerm) ||
-        tool.features.some(feature => feature.toLowerCase().includes(searchTerm))
+        tool.features.some(feature => feature.toLowerCase().includes(searchTerm)) ||
+        tool.license.toLowerCase().includes(searchTerm) ||
+        tool.platform.toLowerCase().includes(searchTerm)
     );
 }
 
@@ -281,11 +326,21 @@ function setupEventListeners() {
         }
     });
     
-    // Búsqueda en tiempo real (opcional)
+    // Búsqueda en tiempo real
     searchInput.addEventListener('input', () => {
-        if (searchInput.value.trim().length >= 3 || searchInput.value.trim().length === 0) {
+        if (searchInput.value.trim().length >= 2 || searchInput.value.trim().length === 0) {
             performSearch();
         }
+    });
+    
+    // Efecto de carga en imágenes
+    const images = document.querySelectorAll('.tool-image');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease';
     });
 }
 
@@ -304,15 +359,283 @@ function performSearch() {
     renderTools(results);
 }
 
-// Mostrar detalles de herramienta (para demo)
+// Mostrar detalles de herramienta
 function showToolDetails(toolId) {
     const tool = toolsData.find(t => t.id === toolId);
     if (tool) {
-        alert(`Detalles de ${tool.name}\n\nCategoría: ${getCategoryName(tool.category)}\nLicencia: ${tool.license === 'free' ? 'Gratuita' : 'Premium'}\nPlataforma: ${tool.platform}\n\nCaracterísticas:\n• ${tool.features.join('\n• ')}`);
+        const difficultyText = {
+            'beginner': 'Principiante',
+            'intermediate': 'Intermedio',
+            'advanced': 'Avanzado'
+        };
+        
+        const modalHTML = `
+            <div class="tool-modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <img src="${tool.image}" alt="${tool.name}" class="modal-image">
+                    <h2>${tool.name}</h2>
+                    <div class="modal-meta">
+                        <span class="modal-category">${getCategoryName(tool.category)}</span>
+                        <span class="modal-license">Licencia: ${tool.license}</span>
+                        <span class="modal-difficulty ${tool.difficulty}">${difficultyText[tool.difficulty]}</span>
+                        <span class="modal-platform">Plataforma: ${tool.platform}</span>
+                    </div>
+                    <p class="modal-description">${tool.description}</p>
+                    <h3>Características principales:</h3>
+                    <ul class="modal-features">
+                        ${tool.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                    <div class="modal-actions">
+                        <button onclick="window.open('https://www.google.com/search?q=${encodeURIComponent(tool.name)}+download', '_blank')" class="modal-btn download">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Descargar
+                        </button>
+                        <button onclick="window.location.href='${tool.link}'" class="modal-btn learn-more">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-4"/>
+                                <path d="M12 8h.01"/>
+                            </svg>
+                            Aprender más
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Crear modal
+        const modal = document.createElement('div');
+        modal.innerHTML = modalHTML;
+        document.body.appendChild(modal);
+        
+        // Estilos del modal
+        const style = document.createElement('style');
+        style.textContent = `
+            .tool-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                animation: fadeIn 0.3s ease;
+                backdrop-filter: blur(5px);
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            .modal-content {
+                background: linear-gradient(135deg, #1a1a1a, var(--azul-oscuro));
+                border-radius: 20px;
+                padding: 2rem;
+                max-width: 600px;
+                width: 90%;
+                max-height: 80vh;
+                overflow-y: auto;
+                border: 2px solid var(--verde-neon);
+                box-shadow: 0 20px 60px rgba(0, 255, 171, 0.3);
+                position: relative;
+                animation: slideUp 0.4s ease;
+            }
+            
+            @keyframes slideUp {
+                from { transform: translateY(50px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            
+            .close-modal {
+                position: absolute;
+                top: 1rem;
+                right: 1.5rem;
+                font-size: 2rem;
+                color: var(--verde-neon);
+                cursor: pointer;
+                transition: color 0.3s ease;
+                background: none;
+                border: none;
+                line-height: 1;
+            }
+            
+            .close-modal:hover {
+                color: #fff;
+            }
+            
+            .modal-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 12px;
+                margin-bottom: 1.5rem;
+                border: 2px solid rgba(0, 255, 171, 0.3);
+            }
+            
+            .modal-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+                margin: 1rem 0;
+            }
+            
+            .modal-meta span {
+                padding: 0.3rem 0.8rem;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                font-weight: 600;
+            }
+            
+            .modal-category {
+                background: rgba(0, 255, 171, 0.1);
+                color: var(--verde-neon);
+                border: 1px solid rgba(0, 255, 171, 0.3);
+            }
+            
+            .modal-license {
+                background: rgba(76, 175, 80, 0.1);
+                color: #4caf50;
+                border: 1px solid rgba(76, 175, 80, 0.3);
+            }
+            
+            .modal-difficulty.beginner {
+                background: rgba(76, 175, 80, 0.2);
+                color: #4caf50;
+                border: 1px solid rgba(76, 175, 80, 0.3);
+            }
+            
+            .modal-difficulty.intermediate {
+                background: rgba(255, 152, 0, 0.2);
+                color: #ff9800;
+                border: 1px solid rgba(255, 152, 0, 0.3);
+            }
+            
+            .modal-difficulty.advanced {
+                background: rgba(244, 67, 54, 0.2);
+                color: #f44336;
+                border: 1px solid rgba(244, 67, 54, 0.3);
+            }
+            
+            .modal-platform {
+                background: rgba(33, 150, 243, 0.1);
+                color: #2196f3;
+                border: 1px solid rgba(33, 150, 243, 0.3);
+            }
+            
+            .modal-description {
+                color: rgba(255, 255, 255, 0.9);
+                line-height: 1.6;
+                margin: 1.5rem 0;
+                font-size: 1.1rem;
+            }
+            
+            .modal-features {
+                list-style: none;
+                padding: 0;
+                margin: 1rem 0 2rem;
+            }
+            
+            .modal-features li {
+                padding: 0.5rem 0;
+                color: rgba(255, 255, 255, 0.9);
+                position: relative;
+                padding-left: 1.8rem;
+            }
+            
+            .modal-features li::before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: var(--verde-neon);
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+            
+            .modal-actions {
+                display: flex;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+            
+            .modal-btn {
+                flex: 1;
+                padding: 1rem 1.5rem;
+                border: none;
+                border-radius: 10px;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .modal-btn.download {
+                background: var(--verde-neon);
+                color: var(--azul-oscuro);
+            }
+            
+            .modal-btn.download:hover {
+                background: #00e699;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 255, 171, 0.4);
+            }
+            
+            .modal-btn.learn-more {
+                background: transparent;
+                color: var(--verde-neon);
+                border: 2px solid var(--verde-neon);
+            }
+            
+            .modal-btn.learn-more:hover {
+                background: rgba(0, 255, 171, 0.1);
+                transform: translateY(-2px);
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Cerrar modal
+        const closeBtn = modal.querySelector('.close-modal');
+        closeBtn.addEventListener('click', () => {
+            document.body.removeChild(modal);
+            document.head.removeChild(style);
+        });
+        
+        // Cerrar al hacer clic fuera del contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                document.body.removeChild(modal);
+                document.head.removeChild(style);
+            }
+        });
+        
+        // Cerrar con Escape
+        const closeModal = () => {
+            document.body.removeChild(modal);
+            document.head.removeChild(style);
+            document.removeEventListener('keydown', handleEscape);
+        };
+        
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') closeModal();
+        };
+        
+        document.addEventListener('keydown', handleEscape);
     }
 }
 
-// Inicializar tooltips y efectos (opcional)
+// Inicializar tooltips
 function initTooltips() {
     const toolCards = document.querySelectorAll('.tool-card');
     
@@ -327,9 +650,12 @@ function initTooltips() {
     });
 }
 
-// Exportar funciones si es necesario (para uso modular)
+// Exportar funciones
 window.toolsModule = {
     filterTools,
     searchTools,
     showToolDetails
 };
+
+// Inicializar al cargar
+window.addEventListener('load', initTooltips);
