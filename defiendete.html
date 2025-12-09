@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defiéndete - Guías de Protección | CyberSec Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="defiendete.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <h2>CyberSec Blog</h2>
+  </div>
+
+  <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span class="hamburger"></span>
+  </button>
+
+  <nav class="nav-links">
+    <a href="index.html">Inicio</a>
+    <div class="dropdown">
+      <a href="#" class="drop-toggle">Herramientas</a>
+      <div class="dropdown-menu">
+        <a href="#">Nmap</a>
+        <a href="#">Wireshark</a>
+        <a href="#">Burp Suite</a>
+        <a href="#">Metasploit</a>
+      </div>
+    </div>
+    <a href="sistemas.html">Sistemas Operativos</a>
+    <a href="tutoriales.html">Tutoriales</a>
+    <a href="defiendete.html" class="active">Defiéndete</a>
+    <a href="#">Recursos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<!-- Hero de Defiéndete -->
+<section class="hero defiendete-hero">
+    <div class="hero-content">
+        <h1><i class="fas fa-shield-alt"></i> Defiéndete de Ciberataques</h1>
+        <p>Aprende a protegerte de amenazas comunes con guías prácticas, herramientas esenciales y consejos de expertos.</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Protección</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Consejos</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Práctico</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nivel de riesgo personal -->
+<section class="risk-assessment">
+    <div class="assessment-container">
+        <h2><i class="fas fa-chart-line"></i> ¿Cuál es tu nivel de riesgo?</h2>
+        <p>Responde estas preguntas para recibir recomendaciones personalizadas</p>
+        
+        <div class="assessment-quiz">
+            <div class="quiz-question">
+                <h3>1. ¿Qué tipo de dispositivo usas principalmente?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-option" data-risk="low">
+                        <i class="fas fa-laptop"></i>
+                        <span>Laptop personal</span>
+                    </button>
+                    <button class="quiz-option" data-risk="medium">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Smartphone</span>
+                    </button>
+                    <button class="quiz-option" data-risk="high">
+                        <i class="fas fa-desktop"></i>
+                        <span>PC de trabajo</span>
+                    </button>
+                    <button class="quiz-option" data-risk="critical">
+                        <i class="fas fa-server"></i>
+                        <span>Múltiples dispositivos</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>2. ¿Con qué frecuencia realizas transacciones online?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-option" data-risk="low">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>Ocasionalmente</span>
+                    </button>
+                    <button class="quiz-option" data-risk="medium">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Compras mensuales</span>
+                    </button>
+                    <button class="quiz-option" data-risk="high">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Varias veces por semana</span>
+                    </button>
+                    <button class="quiz-option" data-risk="critical">
+                        <i class="fas fa-business-time"></i>
+                        <span>Diariamente (negocios)</span>
+                    </button>
+                </div>
+            </div>
+            
+            <button class="calculate-risk-btn" id="calculate-risk">
+                <i class="fas fa-calculator"></i> Calcular mi riesgo
+            </button>
+        </div>
+        
+        <div class="risk-result hidden" id="risk-result">
+            <div class="result-content">
+                <div class="risk-level">
+                    <h3>Tu nivel de riesgo es: <span id="risk-level-text">MODERADO</span></h3>
+                    <div class="risk-meter">
+                        <div class="meter-fill" id="meter-fill" style="width: 50%"></div>
+                    </div>
+                    <div class="meter-labels">
+                        <span>Bajo</span>
+                        <span>Moderado</span>
+                        <span>Alto</span>
+                        <span>Crítico</span>
+                    </div>
+                </div>
+                
+                <div class="recommendations">
+                    <h4><i class="fas fa-lightbulb"></i> Recomendaciones para ti:</h4>
+                    <ul id="recommendations-list">
+                        <!-- Se llenará dinámicamente -->
+                    </ul>
+                </div>
+                
+                <button class="retake-quiz-btn" id="retake-quiz">
+                    <i class="fas fa-redo"></i> Volver a evaluar
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Amenazas Principales -->
+<section class="main-threats">
+    <div class="section-header">
+        <h2><i class="fas fa-exclamation-triangle"></i> Amenazas más Comunes</h2>
+        <p>Aprende a identificar y defenderte de estos ataques frecuentes</p>
+    </div>
+    
+    <div class="threats-grid">
+        <!-- Phishing -->
+        <div class="threat-card" id="phishing-card">
+            <div class="threat-header phishing">
+                <div class="threat-icon">
+                    <i class="fas fa-fish"></i>
+                </div>
+                <div class="threat-title">
+                    <h3>Phishing</h3>
+                    <span class="threat-frequency">85% de ataques</span>
+                </div>
+                <button class="threat-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <div class="threat-content">
+                <div class="threat-description">
+                    <p>Suplantación de identidad para robar información sensible como contraseñas o datos bancarios.</p>
+                </div>
+                
+                <div class="threat-symptoms">
+                    <h4><i class="fas fa-clipboard-check"></i> Cómo identificarlo:</h4>
+                    <ul>
+                        <li><i class="fas fa-times-circle"></i> Emails con remitentes sospechosos</li>
+                        <li><i class="fas fa-times-circle"></i> URLs que no coinciden con el sitio oficial</li>
+                        <li><i class="fas fa-times-circle"></i> Solicitudes urgentes de información personal</li>
+                        <li><i class="fas fa-times-circle"></i> Errores gramaticales o ortográficos</li>
+                    </ul>
+                </div>
+                
+                <div class="threat-protection">
+                    <h4><i class="fas fa-shield-virus"></i> Cómo protegerte:</h4>
+                    <div class="protection-steps">
+                        <div class="protection-step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h5>Verifica el remitente</h5>
+                                <p>Comprueba siempre la dirección de email completa, no solo el nombre.</p>
+                            </div>
+                        </div>
+                        <div class="protection-step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h5>No hagas clic en enlaces sospechosos</h5>
+                                <p>Pasa el cursor sobre los enlaces para ver la URL real antes de hacer clic.</p>
+                            </div>
+                        </div>
+                        <div class="protection-step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h5>Habilita autenticación de dos factores</h5>
+                                <p>Añade una capa extra de seguridad a tus cuentas importantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="threat-tools">
+                    <h4><i class="fas fa-tools"></i> Herramientas útiles:</h4>
+                    <div class="tools-list">
+                        <a href="#" class="tool-item">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>URL Void - Analizador de URLs</span>
+                        </a>
+                        <a href="#" class="tool-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Report Phishing en Gmail</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="threat-simulator">
+                    <h4><i class="fas fa-gamepad"></i> Prueba tu conocimiento:</h4>
+                    <button class="simulator-btn" data-threat="phishing">
+                        <i class="fas fa-play-circle"></i> Iniciar simulador de phishing
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ransomware -->
+        <div class="threat-card" id="ransomware-card">
+            <div class="threat-header ransomware">
+                <div class="threat-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="threat-title">
+                    <h3>Ransomware</h3>
+                    <span class="threat-frequency">Ataque cada 11 segundos</span>
+                </div>
+                <button class="threat-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <div class="threat-content">
+                <div class="threat-description">
+                    <p>Malware que cifra tus archivos y exige un rescate para recuperarlos.</p>
+                </div>
+                
+                <div class="threat-symptoms">
+                    <h4><i class="fas fa-clipboard-check"></i> Cómo identificarlo:</h4>
+                    <ul>
+                        <li><i class="fas fa-times-circle"></i> Archivos con extensiones extrañas</li>
+                        <li><i class="fas fa-times-circle"></i> Mensajes de rescate en pantalla</li>
+                        <li><i class="fas fa-times-circle"></i> No puedes acceder a tus archivos</li>
+                        <li><i class="fas fa-times-circle"></i> Rendimiento del sistema muy lento</li>
+                    </ul>
+                </div>
+                
+                <div class="threat-protection">
+                    <h4><i class="fas fa-shield-virus"></i> Cómo protegerte:</h4>
+                    <div class="protection-steps">
+                        <div class="protection-step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h5>Manten copias de seguridad</h5>
+                                <p>Realiza backups regulares en discos externos o la nube (3-2-1 rule).</p>
+                            </div>
+                        </div>
+                        <div class="protection-step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h5>Actualiza tu software</h5>
+                                <p>Mantén el sistema operativo y antivirus siempre actualizados.</p>
+                            </div>
+                        </div>
+                        <div class="protection-step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h5>No pagues el rescate</h5>
+                                <p>Pagar no garantiza recuperar los archivos y financia más ataques.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="threat-tools">
+                    <h4><i class="fas fa-tools"></i> Herramientas útiles:</h4>
+                    <div class="tools-list">
+                        <a href="#" class="tool-item">
+                            <i class="fas fa-hdd"></i>
+                            <span>No More Ransom Project</span>
+                        </a>
+                        <a href="#" class="tool-item">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Backup automático con Google Drive</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Malware -->
+        <div class="threat-card" id="malware-card">
+            <div class="threat-header malware">
+                <div class="threat-icon">
+                    <i class="fas fa-virus"></i>
+                </div>
+                <div class="threat-title">
+                    <h3>Malware General</h3>
+                    <span class="threat-frequency">1 millón nuevos diarios</span>
+                </div>
+                <button class="threat-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <div class="threat-content">
+                <div class="threat-description">
+                    <p>Software malicioso diseñado para dañar, explotar o tomar control de sistemas.</p>
+                </div>
+                
+                <div class="threat-symptoms">
+                    <h4><i class="fas fa-clipboard-check"></i> Cómo identificarlo:</h4>
+                    <ul>
+                        <li><i class="fas fa-times-circle"></i> Pop-ups inesperados</li>
+                        <li><i class="fas fa-times-circle"></i> Redirecciones a páginas extrañas</li>
+                        <li><i class="fas fa-times-circle"></i> Uso alto de CPU/RAM sin razón</li>
+                        <li><i class="fas fa-times-circle"></i> Programas que no instalaste</li>
+                    </ul>
+                </div>
+                
+                <div class="threat-protection">
+                    <h4><i class="fas fa-shield-virus"></i> Cómo protegerte:</h4>
+                    <div class="protection-steps">
+                        <div class="protection-step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h5>Usa antivirus confiable</h5>
+                                <p>Instala y mantén actualizado un buen software antivirus.</p>
+                            </div>
+                        </div>
+                        <div class="protection-step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h5>Descarga solo de fuentes oficiales</h5>
+                                <p>Evita cracks, keygens y software pirata que suele contener malware.</p>
+                            </div>
+                        </div>
+                        <div class="protection-step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h5>Escanea archivos antes de abrirlos</h5>
+                                <p>Usa VirusTotal para analizar archivos sospechosos online.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="threat-tools">
+                    <h4><i class="fas fa-tools"></i> Herramientas útiles:</h4>
+                    <div class="tools-list">
+                        <a href="#" class="tool-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Malwarebytes - Escáner gratuito</span>
+                        </a>
+                        <a href="#" class="tool-item">
+                            <i class="fas fa-search"></i>
+                            <span>VirusTotal - Analizador online</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ingeniería Social -->
+        <div class="threat-card" id="social-engineering-card">
+            <div class="threat-header social">
+                <div class="threat-icon">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <div class="threat-title">
+                    <h3>Ingeniería Social</h3>
+                    <span class="threat-frequency">98% exitosos</span>
+                </div>
+                <button class="threat-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <div class="threat-content">
+                <div class="threat-description">
+                    <p>Manipulación psicológica para que reveles información confidencial o realices acciones.</p>
+                </div>
+                
+                <div class="threat-symptoms">
+                    <h4><i class="fas fa-clipboard-check"></i> Cómo identificarlo:</h4>
+                    <ul>
+                        <li><i class="fas fa-times-circle"></i> Llamadas o emails que crean urgencia</li>
+                        <li><i class="fas fa-times-circle"></i> Personas que se hacen pasar por técnicos</li>
+                        <li><i class="fas fa-times-circle"></i> Solicitudes de información "para verificar"</li>
+                        <li><i class="fas fa-times-circle"></i> Ofertas demasiado buenas para ser verdad</li>
+                    </ul>
+                </div>
+                
+                <div class="threat-protection">
+                    <h4><i class="fas fa-shield-virus"></i> Cómo protegerte:</h4>
+                    <div class="protection-steps">
+                        <div class="protection-step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h5>Verifica la identidad</h5>
+                                <p>Nunca des información sin confirmar quién la solicita.</p>
+                            </div>
+                        </div>
+                        <div class="protection-step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h5>Desconfía de la urgencia</h5>
+                                <p>Los atacantes crean falsa urgencia para que no pienses.</p>
+                            </div>
+                        </div>
+                        <div class="protection-step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h5>Educa a tu entorno</h5>
+                                <p>Comparte estos conocimientos con familia y colegas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="threat-tools">
+                    <h4><i class="fas fa-tools"></i> Herramientas útiles:</h4>
+                    <div class="tools-list">
+                        <a href="#" class="tool-item">
+                            <i class="fas fa-book"></i>
+                            <span>Guía de concienciación en seguridad</span>
+                        </a>
+                        <a href="#" class="tool-item">
+                            <i class="fas fa-theater-masks"></i>
+                            <span>Simulaciones de phishing interno</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Herramientas de Protección -->
+<section class="protection-tools">
+    <div class="section-header">
+        <h2><i class="fas fa-toolbox"></i> Kit de Protección Esencial</h2>
+        <p>Herramientas gratuitas y de pago para mantenerte seguro</p>
+    </div>
+    
+    <div class="tools-categories">
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="antivirus">
+                <i class="fas fa-shield-alt"></i> Antivirus
+            </button>
+            <button class="category-tab" data-category="backup">
+                <i class="fas fa-save"></i> Backup
+            </button>
+            <button class="category-tab" data-category="password">
+                <i class="fas fa-key"></i> Contraseñas
+            </button>
+            <button class="category-tab" data-category="network">
+                <i class="fas fa-wifi"></i> Redes
+            </button>
+            <button class="category-tab" data-category="privacy">
+                <i class="fas fa-user-secret"></i> Privacidad
+            </button>
+        </div>
+        
+        <div class="tools-content">
+            <!-- Antivirus -->
+            <div class="tools-category active" id="antivirus-tools">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <div class="tool-info">
+                            <h3>Windows Defender</h3>
+                            <span class="tool-price">Gratuito</span>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p>Antivirus integrado en Windows 10/11 con protección en tiempo real.</p>
+                        <div class="tool-features">
+                            <span><i class="fas fa-check"></i> Protección básica</span>
+                            <span><i class="fas fa-check"></i> Actualizaciones automáticas</span>
+                            <span><i class="fas fa-check"></i> Firewall integrado</span>
+                        </div>
+                    </div>
+                    <div class="tool-footer">
+                        <a href="#" class="tool-link">Activar ahora</a>
+                        <span class="tool-rating">★★★★☆</span>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="fas fa-biohazard"></i>
+                        </div>
+                        <div class="tool-info">
+                            <h3>Malwarebytes</h3>
+                            <span class="tool-price">Freemium</span>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p>Especializado en detección y eliminación de malware avanzado.</p>
+                        <div class="tool-features">
+                            <span><i class="fas fa-check"></i> Escaneo profundo</span>
+                            <span><i class="fas fa-check"></i> Protección ransomware</span>
+                            <span><i class="fas fa-check"></i> Navegación segura</span>
+                        </div>
+                    </div>
+                    <div class="tool-footer">
+                        <a href="#" class="tool-link">Descargar</a>
+                        <span class="tool-rating">★★★★★</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Password Managers -->
+            <div class="tools-category" id="password-tools">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="tool-info">
+                            <h3>Bitwarden</h3>
+                            <span class="tool-price">Gratuito</span>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p>Gestor de contraseñas open-source con sincronización multiplataforma.</p>
+                        <div class="tool-features">
+                            <span><i class="fas fa-check"></i> Cifrado de extremo a extremo</span>
+                            <span><i class="fas fa-check"></i> Generador de contraseñas</span>
+                            <span><i class="fas fa-check"></i> Autocompletado seguro</span>
+                        </div>
+                    </div>
+                    <div class="tool-footer">
+                        <a href="#" class="tool-link">Instalar</a>
+                        <span class="tool-rating">★★★★★</span>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="tool-info">
+                            <h3>KeePass</h3>
+                            <span class="tool-price">Open Source</span>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <p>Gestor de contraseñas local, perfecto para máxima privacidad.</p>
+                        <div class="tool-features">
+                            <span><i class="fas fa-check"></i> Sin nube</span>
+                            <span><i class="fas fa-check"></i> Plugins disponibles</span>
+                            <span><i class="fas fa-check"></i> Portable</span>
+                        </div>
+                    </div>
+                    <div class="tool-footer">
+                        <a href="#" class="tool-link">Descargar</a>
+                        <span class="tool-rating">★★★★☆</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Checklist de Seguridad -->
+<section class="security-checklist">
+    <div class="checklist-container">
+        <div class="checklist-header">
+            <h2><i class="fas fa-clipboard-check"></i> Checklist de Seguridad Diaria</h2>
+            <p>Marca las tareas que has completado para mantener tu protección actualizada</p>
+        </div>
+        
+        <div class="checklist-grid">
+            <div class="checklist-item">
+                <input type="checkbox" id="check1" class="check-item">
+                <label for="check1">
+                    <span class="check-icon"></span>
+                    <span class="check-text">Verificar actualizaciones del sistema</span>
+                </label>
+                <span class="check-frequency">Diario</span>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="check2" class="check-item">
+                <label for="check2">
+                    <span class="check-icon"></span>
+                    <span class="check-text">Revisar emails sospechosos</span>
+                </label>
+                <span class="check-frequency">Diario</span>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="check3" class="check-item">
+                <label for="check3">
+                    <span class="check-icon"></span>
+                    <span class="check-text">Copia de seguridad importante</span>
+                </label>
+                <span class="check-frequency">Semanal</span>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="check4" class="check-item">
+                <label for="check4">
+                    <span class="check-icon"></span>
+                    <span class="check-text">Cambiar contraseñas débiles</span>
+                </label>
+                <span class="check-frequency">Mensual</span>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="check5" class="check-item">
+                <label for="check5">
+                    <span class="check-icon"></span>
+                    <span class="check-text">Escanear dispositivos con antivirus</span>
+                </label>
+                <span class="check-frequency">Semanal</span>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="check6" class="check-item">
+                <label for="check6">
+                    <span class="check-icon"></span>
+                    <span class="check-text">Revisar permisos de apps</span>
+                </label>
+                <span class="check-frequency">Mensual</span>
+            </div>
+        </div>
+        
+        <div class="checklist-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="checklist-progress" style="width: 0%"></div>
+            </div>
+            <div class="progress-text">
+                <span id="completed-checks">0</span> de <span id="total-checks">6</span> tareas completadas
+            </div>
+            <button class="reset-checklist" id="reset-checklist">
+                <i class="fas fa-redo"></i> Reiniciar checklist
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Simulador de Ataques -->
+<section class="attack-simulator">
+    <div class="simulator-container">
+        <h2><i class="fas fa-gamepad"></i> Simulador de Ataques</h2>
+        <p>Pon a prueba tus conocimientos en un entorno seguro y controlado</p>
+        
+        <div class="simulator-scenarios">
+            <div class="scenario-card" data-scenario="phishing">
+                <div class="scenario-header">
+                    <h3>Simulador de Phishing</h3>
+                    <span class="scenario-difficulty easy">Fácil</span>
+                </div>
+                <div class="scenario-body">
+                    <p>Identifica correos falsos entre emails legítimos.</p>
+                    <div class="scenario-stats">
+                        <span><i class="fas fa-users"></i> 2,345 completados</span>
+                        <span><i class="fas fa-star"></i> 4.5/5</span>
+                    </div>
+                </div>
+                <button class="start-scenario" data-scenario="phishing">
+                    <i class="fas fa-play"></i> Comenzar simulación
+                </button>
+            </div>
+            
+            <div class="scenario-card" data-scenario="password">
+                <div class="scenario-header">
+                    <h3>Fortaleza de Contraseñas</h3>
+                    <span class="scenario-difficulty medium">Medio</span>
+                </div>
+                <div class="scenario-body">
+                    <p>Comprueba qué tan seguras son tus contraseñas.</p>
+                    <div class="scenario-stats">
+                        <span><i class="fas fa-users"></i> 4,789 completados</span>
+                        <span><i class="fas fa-star"></i> 4.7/5</span>
+                    </div>
+                </div>
+                <button class="start-scenario" data-scenario="password">
+                    <i class="fas fa-play"></i> Comenzar simulación
+                </button>
+            </div>
+            
+            <div class="scenario-card" data-scenario="social">
+                <div class="scenario-header">
+                    <h3>Ingeniería Social</h3>
+                    <span class="scenario-difficulty hard">Difícil</span>
+                </div>
+                <div class="scenario-body">
+                    <p>Reconoce técnicas de manipulación psicológica.</p>
+                    <div class="scenario-stats">
+                        <span><i class="fas fa-users"></i> 1,234 completados</span>
+                        <span><i class="fas fa-star"></i> 4.8/5</span>
+                    </div>
+                </div>
+                <button class="start-scenario" data-scenario="social">
+                    <i class="fas fa-play"></i> Comenzar simulación
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recursos de Emergencia -->
+<section class="emergency-resources">
+    <div class="emergency-container">
+        <h2><i class="fas fa-first-aid"></i> Recursos de Emergencia</h2>
+        <p>¿Ya fuiste víctima de un ataque? Sigue estos pasos inmediatos</p>
+        
+        <div class="emergency-steps">
+            <div class="emergency-step">
+                <div class="step-number emergency">!</div>
+                <div class="step-content">
+                    <h3>1. Desconecta el dispositivo</h3>
+                    <p>Desconéctalo de Internet inmediatamente para evitar más daños.</p>
+                </div>
+            </div>
+            
+            <div class="emergency-step">
+                <div class="step-number emergency">!!</div>
+                <div class="step-content">
+                    <h3>2. Cambia todas tus contraseñas</h3>
+                    <p>Desde otro dispositivo seguro, cambia contraseñas de cuentas importantes.</p>
+                </div>
+            </div>
+            
+            <div class="emergency-step">
+                <div class="step-number emergency">!!!</div>
+                <div class="step-content">
+                    <h3>3. Reporta el incidente</h3>
+                    <p>Contacta a las autoridades y a tu banco si hubo fraude financiero.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="emergency-contacts">
+            <h3><i class="fas fa-phone-alt"></i> Contactos de Emergencia:</h3>
+            <div class="contact-list">
+                <a href="#" class="contact-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="contact-info">
+                        <h4>INCIBE (España)</h4>
+                        <p>017 - Línea de ayuda en ciberseguridad</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="contact-item">
+                    <i class="fas fa-credit-card"></i>
+                    <div class="contact-info">
+                        <h4>Tu banco</h4>
+                        <p>Bloquea tarjetas si hubo fraude</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="contact-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <div class="contact-info">
+                        <h4>Policía</h4>
+                        <p>Denuncia el delito cibernético</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-bottom">
+        <p>© 2025 CyberSec Blog. Todos los derechos reservados. | 
+            <a href="defiendete.html">Defiéndete</a> | 
+            <a href="tutoriales.html">Tutoriales</a> | 
+            <a href="contacto.html">Contacto</a>
+        </p>
+    </div>
+</footer>
+
+<!-- Modal para simuladores -->
+<div class="simulator-modal hidden" id="simulator-modal">
+    <div class="modal-content">
+        <!-- Se llenará dinámicamente con JS -->
+    </div>
+</div>
+
+<script src="eventos.js"></script>
+<script src="defiendete.js"></script>
+</body>
+</html>
