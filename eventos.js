@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* --------------------------------------------------
+       FILTRO + ORDENAMIENTO DE NOTICIAS (TU CÓDIGO)
+    -------------------------------------------------- */
+
     const searchInput = document.getElementById("search");
     const filterSelect = document.getElementById("filter");
     const newsGrid = document.querySelector(".news-grid");
@@ -29,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         visibleCards.forEach(card => newsGrid.appendChild(card));
     }
 
-    // Eventos
+    // Eventos búsqueda
     searchInput.addEventListener("input", () => {
         filterCards();
         sortCards();
@@ -39,5 +43,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Orden inicial
     sortCards();
+
+
+
+    /* --------------------------------------------------
+       MENÚ HAMBURGUESA RESPONSIVE
+    -------------------------------------------------- */
+
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+
+    if (btn && nav) {
+        btn.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('open');
+            btn.classList.toggle('open');
+        });
+    }
+
+
+
+    /* --------------------------------------------------
+       DROPDOWN EN MÓVIL (click en vez de hover)
+    -------------------------------------------------- */
+
+    document.querySelectorAll('.dropdown').forEach(drop => {
+        const toggle = drop.querySelector('.drop-toggle');
+        const menu = drop.querySelector('.dropdown-menu');
+
+        if (!toggle || !menu) return;
+
+        toggle.addEventListener('click', (e) => {
+            // Solo activar en móvil
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                e.preventDefault();
+                menu.classList.toggle('open');
+            }
+        });
+
+        // Cerrar si se toca afuera
+        document.addEventListener('click', (e) => {
+            if (!drop.contains(e.target)) {
+                menu.classList.remove('open');
+            }
+        });
+    });
+
+
+
+    /* --------------------------------------------------
+       OPCIONAL: CERRAR MENÚ AL CLICAR LINK EN MÓVIL
+    -------------------------------------------------- */
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                nav.classList.remove('open');
+                btn.classList.remove('open');
+                btn.setAttribute('aria-expanded', "false");
+            }
+        });
+    });
 
 });

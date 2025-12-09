@@ -10,30 +10,37 @@
 <body>
 
 <header>
-    <div class="logo">
-        <h2>CyberSec Blog</h2>
+  <div class="logo">
+    <h2>CyberSec Blog</h2>
+  </div>
+
+  <!-- Botón hamburguesa visible en móviles -->
+  <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span class="hamburger"></span>
+  </button>
+
+  <!-- Nav links envueltos para controlar el menú móvil -->
+  <nav class="nav-links">
+    <a href="index.html">Inicio</a>
+
+    <div class="dropdown">
+      <a href="#" class="drop-toggle">Herramientas</a>
+      <div class="dropdown-menu">
+        <a href="#">Nmap</a>
+        <a href="#">Wireshark</a>
+        <a href="#">Burp Suite</a>
+        <a href="#">Metasploit</a>
+      </div>
     </div>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-
-        <div class="dropdown">
-            <a href="#">Herramientas</a>
-            <div class="dropdown-menu">
-                <a href="#">Nmap</a>
-                <a href="#">Wireshark</a>
-                <a href="#">Burp Suite</a>
-                <a href="#">Metasploit</a>
-            </div>
-        </div>
-
-        <a href="sistemas.html">Sistemas Operativos</a>
-        <a href="tutoriales.html">Tutoriales</a>
-        <a href="#">Noticias</a>
-        <a href="#">Recursos</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
+    <a href="sistemas.html">Sistemas Operativos</a>
+    <a href="tutoriales.html">Tutoriales</a>
+    <a href="#">Noticias</a>
+    <a href="#">Recursos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
 </header>
+
 
 <!-- Hero -->
 <section class="hero">
