@@ -6,128 +6,624 @@
     <title>Tutoriales - CyberSec Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tutoriales.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <header>
-    <div class="logo">
-        <h2>CyberSec Blog</h2>
+  <div class="logo">
+    <h2>CyberSec Blog</h2>
+  </div>
+
+  <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span class="hamburger"></span>
+  </button>
+
+  <nav class="nav-links">
+    <a href="index.html">Inicio</a>
+    <div class="dropdown">
+      <a href="#" class="drop-toggle">Herramientas</a>
+      <div class="dropdown-menu">
+        <a href="#">Nmap</a>
+        <a href="#">Wireshark</a>
+        <a href="#">Burp Suite</a>
+        <a href="#">Metasploit</a>
+      </div>
     </div>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="#">Herramientas</a>
-        <a href="sistemas.html">Sistemas Operativos</a>
-        <a href="tutoriales.html">Tutoriales</a>
-        <a href="#">Noticias</a>
-        <a href="#">Recursos</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
+    <a href="sistemas.html">Sistemas Operativos</a>
+    <a href="tutoriales.html" class="active">Tutoriales</a>
+    <a href="#">Noticias</a>
+    <a href="#">Recursos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
 </header>
 
-<!-- Hero de Tutoriales -->
-<section class="hero">
-    <h1>Tutoriales de Ciberseguridad</h1>
-    <p>Encuentra tutoriales prácticos y guías paso a paso para mejorar tus habilidades en seguridad informática.</p>
+<!-- Hero de tutoriales -->
+<section class="hero tutoriales-hero">
+    <div class="hero-content">
+        <h1><i class="fas fa-graduation-cap"></i> Tutoriales de Ciberseguridad</h1>
+        <p>Aprende desde cero hasta experto con nuestras guías paso a paso, laboratorios prácticos y recursos exclusivos.</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Tutoriales</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Niveles</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">12</span>
+                <span class="stat-label">Categorías</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Acceso</span>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- Buscador centrado -->
-<div class="search-filters-container">
-    <div class="search-filters">
-        <input type="text" placeholder="Buscar tutoriales..." id="search" name="search">
-        <select id="filter">
-            <option value="recent">Más recientes</option>
-            <option value="old">Más antiguos</option>
-        </select>
-        <button>Buscar</button>
+<!-- Filtros y búsqueda de tutoriales -->
+<div class="tutoriales-filters">
+    <div class="filters-container">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar tutoriales..." id="tutorial-search">
+        </div>
+        
+        <div class="filter-group">
+            <select id="category-filter">
+                <option value="">Todas las categorías</option>
+                <option value="pentesting">Pentesting</option>
+                <option value="forense">Análisis Forense</option>
+                <option value="redes">Seguridad de Redes</option>
+                <option value="web">Seguridad Web</option>
+                <option value="malware">Análisis de Malware</option>
+                <option value="cripto">Criptografía</option>
+                <option value="cloud">Seguridad Cloud</option>
+                <option value="iot">IoT Security</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <select id="level-filter">
+                <option value="">Todos los niveles</option>
+                <option value="beginner">Principiante</option>
+                <option value="intermediate">Intermedio</option>
+                <option value="advanced">Avanzado</option>
+                <option value="expert">Experto</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <select id="duration-filter">
+                <option value="">Cualquier duración</option>
+                <option value="short">Corto (< 30 min)</option>
+                <option value="medium">Medio (30-60 min)</option>
+                <option value="long">Largo (> 60 min)</option>
+            </select>
+        </div>
+        
+        <button class="filter-btn" id="apply-filters">
+            <i class="fas fa-filter"></i> Filtrar
+        </button>
+        
+        <button class="reset-btn" id="reset-filters">
+            <i class="fas fa-redo"></i> Limpiar
+        </button>
     </div>
 </div>
 
-<div class="container">
-
-    <!-- Tutoriales en filas de 3 columnas -->
-    <div class="news-grid">
-        <div class="news-card">
-            <img src="kalii.png" alt="Pentesting Básico">
-            <span class="date">12/11/2025</span>
-            <h3>Pentesting Básico</h3>
-            <p>Aprende los fundamentos del pentesting y cómo realizar pruebas de seguridad de manera ética.</p>
-            <a href="#">Leer más</a>
-        </div>
-
-        <div class="news-card">
-            <img src="kalii.png" alt="Firewall en Linux">
-            <span class="date">10/11/2025</span>
-            <h3>Configurar Firewall en Linux</h3>
-            <p>Guía paso a paso para configurar un firewall efectivo y proteger tu sistema Linux.</p>
-            <a href="#">Leer más</a>
-        </div>
-
-        <div class="news-card">
-            <img src="kalii.png" alt="Seguridad en Redes">
-            <span class="date">08/11/2025</span>
-            <h3>Seguridad en Redes</h3>
-            <p>Aprende a implementar medidas de seguridad en redes y proteger tus datos de ataques externos.</p>
-            <a href="#">Leer más</a>
-        </div>
-
-        <!-- Puedes duplicar más tarjetas según necesites -->
+<!-- Niveles de aprendizaje -->
+<section class="learning-path">
+    <div class="section-header">
+        <h2><i class="fas fa-road"></i> Ruta de Aprendizaje</h2>
+        <p>Selecciona tu nivel actual y sigue nuestro camino estructurado</p>
     </div>
+    
+    <div class="path-steps">
+        <div class="path-step beginner">
+            <div class="step-icon">
+                <i class="fas fa-seedling"></i>
+            </div>
+            <h3>Principiante</h3>
+            <p>Fundamentos básicos de seguridad</p>
+            <a href="#beginner-tutorials" class="step-link">Ver tutoriales <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="path-step intermediate">
+            <div class="step-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Intermedio</h3>
+            <p>Técnicas y herramientas esenciales</p>
+            <a href="#intermediate-tutorials" class="step-link">Ver tutoriales <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="path-step advanced">
+            <div class="step-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Avanzado</h3>
+            <p>Metodologías y explotación avanzada</p>
+            <a href="#advanced-tutorials" class="step-link">Ver tutoriales <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="path-step expert">
+            <div class="step-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <h3>Experto</h3>
+            <p>Investigación y técnicas de élite</p>
+            <a href="#expert-tutorials" class="step-link">Ver tutoriales <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
 
-    <!-- Sidebar con widgets grandes -->
-    <aside class="sidebar">
-        <div class="widget large-widget">
-            <h4>Categorías</h4>
-            <ul>
-                <li><a href="#">Herramientas</a></li>
-                <li><a href="#">Tutoriales</a></li>
-                <li><a href="#">Noticias</a></li>
-                <li><a href="#">Sistemas Operativos</a></li>
-                <li><a href="#">Recursos</a></li>
-            </ul>
+<!-- Contenedor principal -->
+<div class="tutoriales-container">
+    <main class="tutoriales-main">
+        <!-- Tutoriales Destacados -->
+        <section class="featured-tutorials">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Tutoriales Destacados</h2>
+                <p>Los más populares y mejor valorados por nuestra comunidad</p>
+            </div>
+            
+            <div class="featured-grid">
+                <article class="featured-tutorial premium">
+                    <div class="tutorial-badge">
+                        <span class="badge premium-badge"><i class="fas fa-crown"></i> Premium</span>
+                        <span class="badge duration-badge"><i class="fas fa-clock"></i> 45 min</span>
+                    </div>
+                    <div class="tutorial-image">
+                        <img src="kalii.png" alt="Kali Linux Pentesting">
+                        <div class="image-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-meta">
+                            <span class="level beginner">Principiante</span>
+                            <span class="category">Pentesting</span>
+                        </div>
+                        <h3>Pentesting Básico con Kali Linux</h3>
+                        <p>Aprende las bases del pentesting usando las herramientas esenciales de Kali Linux. Desde instalación hasta escaneo básico.</p>
+                        <div class="tutorial-footer">
+                            <div class="author">
+                                <img src="https://ui-avatars.com/api/?name=Alex+Security&background=00FFAB&color=0D1B2A" alt="Autor">
+                                <span>Alex Security</span>
+                            </div>
+                            <div class="tutorial-stats">
+                                <span><i class="fas fa-eye"></i> 2.5K</span>
+                                <span><i class="fas fa-heart"></i> 150</span>
+                            </div>
+                        </div>
+                        <a href="tutorial-pentesting.html" class="tutorial-btn">Ver Tutorial <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <article class="featured-tutorial">
+                    <div class="tutorial-badge">
+                        <span class="badge duration-badge"><i class="fas fa-clock"></i> 60 min</span>
+                        <span class="badge lab-badge"><i class="fas fa-flask"></i> Lab Práctico</span>
+                    </div>
+                    <div class="tutorial-image">
+                        <img src="kalii.png" alt="Wireshark Analysis">
+                        <div class="image-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tutorial-content">
+                        <div class="tutorial-meta">
+                            <span class="level intermediate">Intermedio</span>
+                            <span class="category">Redes</span>
+                        </div>
+                        <h3>Análisis de Tráfico con Wireshark</h3>
+                        <p>Domina Wireshark para analizar paquetes, detectar anomalías y realizar troubleshooting de red.</p>
+                        <div class="tutorial-footer">
+                            <div class="author">
+                                <img src="https://ui-avatars.com/api/?name=Maria+Hacker&background=00FFAB&color=0D1B2A" alt="Autor">
+                                <span>Maria Hacker</span>
+                            </div>
+                            <div class="tutorial-stats">
+                                <span><i class="fas fa-eye"></i> 1.8K</span>
+                                <span><i class="fas fa-heart"></i> 98</span>
+                            </div>
+                        </div>
+                        <a href="tutorial-wireshark.html" class="tutorial-btn">Ver Tutorial <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Tutoriales por Categoría -->
+        <section class="category-tutorials" id="beginner-tutorials">
+            <div class="section-header">
+                <h2><i class="fas fa-layer-group"></i> Tutoriales para Principiantes</h2>
+                <p>Empieza tu viaje en ciberseguridad con estos tutoriales fundamentales</p>
+            </div>
+            
+            <div class="tutorials-grid">
+                <!-- Tutorial 1 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level beginner">Principiante</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 25 min</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Introducción a la Ciberseguridad</h3>
+                        <p>Conceptos básicos, terminología y panorama actual de la seguridad informática.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Conceptos básicos</li>
+                            <li><i class="fas fa-check-circle"></i> Tipos de amenazas</li>
+                            <li><i class="fas fa-check-circle"></i> Mejores prácticas</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 30%"></div>
+                            <span>30% completado</span>
+                        </div>
+                        <a href="#" class="continue-btn">Continuar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Tutorial 2 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level beginner">Principiante</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 40 min</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Linux Básico para Seguridad</h3>
+                        <p>Aprende los comandos esenciales de Linux para trabajar en ciberseguridad.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Navegación básica</li>
+                            <li><i class="fas fa-check-circle"></i> Permisos y usuarios</li>
+                            <li><i class="fas fa-check-circle"></i> Redes en Linux</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0%"></div>
+                            <span>No iniciado</span>
+                        </div>
+                        <a href="#" class="start-btn">Comenzar <i class="fas fa-play"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Tutorial 3 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level beginner">Principiante</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 35 min</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Seguridad en Redes WiFi</h3>
+                        <p>Protege tu red WiFi doméstica y evita ataques comunes.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Configuración segura</li>
+                            <li><i class="fas fa-check-circle"></i> Tipos de cifrado</li>
+                            <li><i class="fas fa-check-circle"></i> Detección de intrusos</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 100%"></div>
+                            <span>Completado <i class="fas fa-check"></i></span>
+                        </div>
+                        <a href="#" class="review-btn">Repasar <i class="fas fa-redo"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Tutoriales Intermedios -->
+        <section class="category-tutorials" id="intermediate-tutorials">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Tutoriales Intermedios</h2>
+                <p>Perfecciona tus habilidades con técnicas más avanzadas</p>
+            </div>
+            
+            <div class="tutorials-grid">
+                <!-- Tutorial 4 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level intermediate">Intermedio</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 55 min</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Escaneo de Puertos con Nmap</h3>
+                        <p>Técnicas avanzadas de escaneo y detección de servicios.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Escaneos stealth</li>
+                            <li><i class="fas fa-check-circle"></i> Detección de SO</li>
+                            <li><i class="fas fa-check-circle"></i> Scripting con NSE</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 75%"></div>
+                            <span>75% completado</span>
+                        </div>
+                        <a href="#" class="continue-btn">Continuar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Tutorial 5 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level intermediate">Intermedio</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 70 min</span>
+                        <span class="tutorial-lab"><i class="fas fa-flask"></i> Lab</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Explotación Básica con Metasploit</h3>
+                        <p>Introducción al framework Metasploit y explotación de vulnerabilidades.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Configuración inicial</li>
+                            <li><i class="fas fa-check-circle"></i> Búsqueda de exploits</li>
+                            <li><i class="fas fa-check-circle"></i> Creación de payloads</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0%"></div>
+                            <span>No iniciado</span>
+                        </div>
+                        <a href="#" class="start-btn">Comenzar <i class="fas fa-play"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Tutorial 6 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level intermediate">Intermedio</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 50 min</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Análisis de Logs para Seguridad</h3>
+                        <p>Aprende a analizar logs del sistema para detectar actividades sospechosas.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Logs de Apache/Nginx</li>
+                            <li><i class="fas fa-check-circle"></i> Logs de sistema Linux</li>
+                            <li><i class="fas fa-check-circle"></i> Herramientas de análisis</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 20%"></div>
+                            <span>20% completado</span>
+                        </div>
+                        <a href="#" class="continue-btn">Continuar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Laboratorios Prácticos -->
+        <section class="labs-section">
+            <div class="section-header">
+                <h2><i class="fas fa-flask"></i> Laboratorios Prácticos</h2>
+                <p>Aplica lo aprendido en entornos controlados y seguros</p>
+            </div>
+            
+            <div class="labs-grid">
+                <div class="lab-card">
+                    <div class="lab-header">
+                        <span class="lab-difficulty easy">Fácil</span>
+                        <span class="lab-time"><i class="fas fa-clock"></i> 30 min</span>
+                    </div>
+                    <div class="lab-body">
+                        <h3>Laboratorio: Escaneo Básico</h3>
+                        <p>Practica escaneos de red en una máquina virtual objetivo.</p>
+                        <div class="lab-tech">
+                            <span>Kali Linux</span>
+                            <span>Metasploitable</span>
+                            <span>Nmap</span>
+                        </div>
+                    </div>
+                    <div class="lab-footer">
+                        <a href="#" class="lab-btn"><i class="fas fa-play-circle"></i> Iniciar Lab</a>
+                        <span class="lab-users"><i class="fas fa-users"></i> 245 activos</span>
+                    </div>
+                </div>
+                
+                <div class="lab-card">
+                    <div class="lab-header">
+                        <span class="lab-difficulty medium">Medio</span>
+                        <span class="lab-time"><i class="fas fa-clock"></i> 60 min</span>
+                    </div>
+                    <div class="lab-body">
+                        <h3>Laboratorio: Web App Testing</h3>
+                        <p>Prueba una aplicación web vulnerable (DVWA).</p>
+                        <div class="lab-tech">
+                            <span>DVWA</span>
+                            <span>Burp Suite</span>
+                            <span>SQLMap</span>
+                        </div>
+                    </div>
+                    <div class="lab-footer">
+                        <a href="#" class="lab-btn"><i class="fas fa-play-circle"></i> Iniciar Lab</a>
+                        <span class="lab-users"><i class="fas fa-users"></i> 189 activos</span>
+                    </div>
+                </div>
+                
+                <div class="lab-card">
+                    <div class="lab-header">
+                        <span class="lab-difficulty hard">Difícil</span>
+                        <span class="lab-time"><i class="fas fa-clock"></i> 90 min</span>
+                    </div>
+                    <div class="lab-body">
+                        <h3>Laboratorio: CTF Básico</h3>
+                        <p>Resuelve desafíos de Capture The Flag para principiantes.</p>
+                        <div class="lab-tech">
+                            <span>TryHackMe</span>
+                            <span>Binarios</span>
+                            <span>Criptografía</span>
+                        </div>
+                    </div>
+                    <div class="lab-footer">
+                        <a href="#" class="lab-btn"><i class="fas fa-play-circle"></i> Iniciar Lab</a>
+                        <span class="lab-users"><i class="fas fa-users"></i> 312 activos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Paginación -->
+        <div class="tutorial-pagination">
+            <a href="#" class="page-prev"><i class="fas fa-chevron-left"></i> Anterior</a>
+            <div class="page-numbers">
+                <a href="#" class="page-number active">1</a>
+                <a href="#" class="page-number">2</a>
+                <a href="#" class="page-number">3</a>
+                <a href="#" class="page-number">4</a>
+                <a href="#" class="page-number">5</a>
+            </div>
+            <a href="#" class="page-next">Siguiente <i class="fas fa-chevron-right"></i></a>
         </div>
-        <div class="widget large-widget">
-            <h4>Artículos Populares</h4>
-            <ul>
-                <li><a href="#">Guía completa de pentesting 2024</a></li>
-                <li><a href="#">Top 10 herramientas de ciberseguridad</a></li>
-                <li><a href="#">Cómo configurar un firewall en Linux</a></li>
-            </ul>
+    </main>
+    
+    <!-- Sidebar de tutoriales -->
+    <aside class="tutoriales-sidebar">
+        <!-- Progreso del usuario -->
+        <div class="sidebar-widget progress-widget">
+            <h3><i class="fas fa-chart-bar"></i> Mi Progreso</h3>
+            <div class="progress-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Tutoriales Completados</span>
+                    <span class="stat-value">8/24</span>
+                </div>
+                <div class="progress-circle">
+                    <div class="circle" data-value="33">
+                        <span>33%</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Horas de Estudio</span>
+                    <span class="stat-value">14.5h</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Días Consecutivos</span>
+                    <span class="stat-value">7</span>
+                </div>
+            </div>
+            <a href="#" class="view-progress-btn">Ver detalles <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div class="widget large-widget">
-            <h4>Publicidad</h4>
-            <div style="background-color: #000; height: 300px; display: flex; align-items: center; justify-content: center; color:#fff;">Espacio AdSense</div>
+        
+        <!-- Tutoriales recientes -->
+        <div class="sidebar-widget recent-tutorials">
+            <h3><i class="fas fa-history"></i> Recientemente Vistos</h3>
+            <div class="recent-list">
+                <a href="#" class="recent-item">
+                    <div class="recent-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="recent-info">
+                        <h4>Introducción a Nmap</h4>
+                        <span>Visto hace 2 días</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="recent-item">
+                    <div class="recent-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="recent-info">
+                        <h4>SQL Injection Básico</h4>
+                        <span>Visto hace 1 semana</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="recent-item">
+                    <div class="recent-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="recent-info">
+                        <h4>Lab: Escaneo de Puertos</h4>
+                        <span>Completado ayer</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Recursos de aprendizaje -->
+        <div class="sidebar-widget learning-resources">
+            <h3><i class="fas fa-book"></i> Recursos Adicionales</h3>
+            <div class="resources-list">
+                <a href="#" class="resource-item">
+                    <i class="fas fa-download"></i>
+                    <span>Cheatsheets de Comandos</span>
+                </a>
+                
+                <a href="#" class="resource-item">
+                    <i class="fas fa-code"></i>
+                    <span>Scripts de Automatización</span>
+                </a>
+                
+                <a href="#" class="resource-item">
+                    <i class="fas fa-film"></i>
+                    <span>Videotutoriales Exclusivos</span>
+                </a>
+                
+                <a href="#" class="resource-item">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Foro de Preguntas y Respuestas</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Certificaciones -->
+        <div class="sidebar-widget certifications">
+            <h3><i class="fas fa-award"></i> Preparación para Certificaciones</h3>
+            <div class="certs-list">
+                <div class="cert-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/CEH_logo.svg/1200px-CEH_logo.svg.png" alt="CEH">
+                    <div class="cert-info">
+                        <h4>CEH</h4>
+                        <p>15 tutoriales relacionados</p>
+                    </div>
+                </div>
+                
+                <div class="cert-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/CompTIA_Security%2B.svg/1200px-CompTIA_Security%2B.svg.png" alt="Security+">
+                    <div class="cert-info">
+                        <h4>Security+</h4>
+                        <p>22 tutoriales relacionados</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="view-certs-btn">Ver todas las certificaciones</a>
+        </div>
+        
+        <!-- Newsletter -->
+        <div class="sidebar-widget newsletter">
+            <h3><i class="fas fa-envelope"></i> Newsletter Semanal</h3>
+            <p>Recibe los nuevos tutoriales y recursos en tu email.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Tu email">
+                <button type="submit">Suscribirme</button>
+            </div>
+            <p class="small-text">Sin spam, solo contenido de valor.</p>
         </div>
     </aside>
 </div>
 
-<!-- Footer profesional -->
 <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-about">
-            <h4>CyberSec Blog</h4>
-            <p>Tu fuente de noticias, tutoriales y recursos sobre ciberseguridad.</p>
-        </div>
-        <div class="footer-links">
-            <h4>Enlaces</h4>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="sobre-mi.html">Sobre mí</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="#">Política de privacidad</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <h4>Contacto</h4>
-            <p>Email: contacto@cybersecblog.com</p>
-            <p>Teléfono: +34 600 123 456</p>
-            <p>España</p>
-        </div>
-    </div>
     <div class="footer-bottom">
-        <p>© 2025 CyberSec Blog. Todos los derechos reservados.</p>
+        <p>© 2025 CyberSec Blog. Todos los derechos reservados. | <a href="tutoriales.html">Tutoriales</a> | <a href="contacto.html">Contacto</a></p>
     </div>
 </footer>
 
+<script src="eventos.js"></script>
+<script src="tutoriales.js"></script>
 </body>
 </html>
