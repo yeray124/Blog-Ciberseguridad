@@ -543,36 +543,57 @@ nav.nav-links .drop-toggle:hover {
     }
 
     /* Dropdown en móvil */
+ @media (max-width: 768px) {
+    /* Indicador visual de que el dropdown está abierto */
+    .drop-toggle.open {
+        background: rgba(0, 255, 171, 0.2) !important;
+        color: var(--blanco) !important;
+        border-left: 3px solid var(--verde-neon) !important;
+    }
+    
+    /* Mejorar transición del dropdown */
     .dropdown-menu {
-        position: static !important;
-        display: none;
-        background: rgba(13, 27, 42, 0.9);
-        border-left: 3px solid var(--verde-neon);
-        margin: 0 1rem 0.5rem 1.5rem;
-        box-shadow: none;
-        padding: 0.5rem 0;
+        transition: all 0.3s ease !important;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
     }
-
+    
     .dropdown-menu.open {
-        display: block;
-        animation: fadeIn 0.3s ease;
+        max-height: 300px;
+        opacity: 1;
+        transform: translateY(0);
+        animation: none !important; /* Quitar animación conflictiva */
     }
+    
+    /* Flecha que rota cuando está abierto */
+    .drop-toggle::after {
+        content: "▶";
+        font-size: 0.7rem;
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .drop-toggle.open::after {
+        content: "▼";
+        transform: rotate(0deg);
+    }
+}
 
-    .dropdown-menu.open a {
-        color: var(--verde-neon);
-        padding: 0.6rem 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+/* Animación suave para el dropdown */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
     }
-
-    .dropdown-menu.open a:hover {
-        background: rgba(0, 255, 171, 0.2);
-        color: var(--blanco);
-        padding-left: 1.2rem;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 300px;
     }
-
-    .dropdown-menu.open a:last-child {
-        border-bottom: none;
-    }
+}
 
     /* Ajustes del buscador para móvil */
     .search-filters-container {
