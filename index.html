@@ -14,15 +14,12 @@
     <h2>CyberSec Blog</h2>
   </div>
 
-  <!-- Botón hamburguesa visible en móviles -->
   <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
     <span class="hamburger"></span>
   </button>
 
-  <!-- Nav links envueltos para controlar el menú móvil -->
   <nav class="nav-links">
     <a href="index.html">Inicio</a>
-
     <div class="dropdown">
       <a href="#" class="drop-toggle">Herramientas</a>
       <div class="dropdown-menu">
@@ -32,7 +29,6 @@
         <a href="#">Metasploit</a>
       </div>
     </div>
-
     <a href="sistemas.html">Sistemas Operativos</a>
     <a href="tutoriales.html">Tutoriales</a>
     <a href="#">Noticias</a>
@@ -40,7 +36,6 @@
     <a href="contacto.html">Contacto</a>
   </nav>
 </header>
-
 
 <!-- Hero -->
 <section class="hero">
@@ -62,42 +57,9 @@
 
 <div class="container">
 
-    <!-- Noticias -->
-    <div class="news-grid">
-
-        <a href="pentesting.html" class="news-card">
-            <img src="kalii.png" alt="Pentesting">
-            <span class="date">12/11/2025</span>
-            <h3>Introducción al Pentesting</h3>
-            <p>Descubre las herramientas fundamentales que todo profesional de la seguridad debe conocer...</p>
-        </a>
-
-        <a href="seguridad-redes.html" class="news-card">
-            <img src="kalii.png" alt="Redes">
-            <span class="date">10/11/2025</span>
-            <h3>Seguridad en redes</h3>
-            <p>Aprende a configurar y optimizar firewalls para proteger tu infraestructura de red...</p>
-        </a>
-
-        <a href="herramientas1.html" class="news-card">
-            <img src="kalii.png" alt="Herramientas">
-            <span class="date">08/11/2025</span>
-            <h3>Herramientas de ciberseguridad</h3>
-            <p>Conoce las herramientas esenciales para auditar y proteger tus sistemas...</p>
-        </a>
-
-        <a href="herramientas2.html" class="news-card">
-            <img src="kalii.png" alt="Herramientas">
-            <span class="date">10/10/2025</span>
-            <h3>Herramientas de ciberseguridad</h3>
-            <p>Más herramientas esenciales para auditar sistemas...</p>
-        </a>
-
-    </div>
-
-    <!-- Sidebar -->
+    <!-- Sidebar widgets separados -->
     <aside class="sidebar">
-        <div class="widget large-widget">
+        <div class="widget">
             <h4>Categorías</h4>
             <ul>
                 <li><a href="#">Herramientas</a></li>
@@ -108,7 +70,7 @@
             </ul>
         </div>
 
-        <div class="widget large-widget">
+        <div class="widget">
             <h4>Artículos Populares</h4>
             <ul>
                 <li><a href="#">Guía completa de pentesting 2024</a></li>
@@ -117,11 +79,93 @@
             </ul>
         </div>
 
-        <div class="widget large-widget">
+        <div class="widget ad-widget">
             <h4>Publicidad</h4>
-            <div style="background-color: #000; height: 300px; display: flex; align-items: center; justify-content: center; color:#fff;">Espacio AdSense</div>
+            <div class="ad-space">Espacio AdSense</div>
         </div>
     </aside>
+
+    <!-- Contenedor principal de noticias -->
+    <div class="main-content">
+        <!-- Grid de noticias (máximo 9) -->
+        <div class="news-grid">
+            <!-- Fila 1 -->
+            <a href="pentesting.html" class="news-card">
+                <img src="kalii.png" alt="Pentesting">
+                <span class="date">12/11/2025</span>
+                <h3>Introducción al Pentesting</h3>
+                <p>Descubre las herramientas fundamentales que todo profesional de la seguridad debe conocer...</p>
+            </a>
+
+            <a href="seguridad-redes.html" class="news-card">
+                <img src="kalii.png" alt="Redes">
+                <span class="date">10/11/2025</span>
+                <h3>Seguridad en redes</h3>
+                <p>Aprende a configurar y optimizar firewalls para proteger tu infraestructura de red...</p>
+            </a>
+
+            <a href="herramientas1.html" class="news-card">
+                <img src="kalii.png" alt="Herramientas">
+                <span class="date">08/11/2025</span>
+                <h3>Herramientas de ciberseguridad</h3>
+                <p>Conoce las herramientas esenciales para auditar y proteger tus sistemas...</p>
+            </a>
+
+            <!-- Fila 2 -->
+            <a href="herramientas2.html" class="news-card">
+                <img src="kalii.png" alt="Herramientas">
+                <span class="date">10/10/2025</span>
+                <h3>Herramientas de ciberseguridad</h3>
+                <p>Más herramientas esenciales para auditar sistemas...</p>
+            </a>
+
+            <a href="#" class="news-card">
+                <img src="kalii.png" alt="Noticia 5">
+                <span class="date">05/10/2025</span>
+                <h3>Seguridad en la Nube</h3>
+                <p>Mejores prácticas para proteger tus datos en servicios cloud...</p>
+            </a>
+
+            <a href="#" class="news-card">
+                <img src="kalii.png" alt="Noticia 6">
+                <span class="date">01/10/2025</span>
+                <h3>Criptografía Moderna</h3>
+                <p>Fundamentos de criptografía aplicada a la seguridad informática...</p>
+            </a>
+
+            <!-- Fila 3 -->
+            <a href="#" class="news-card">
+                <img src="kalii.png" alt="Noticia 7">
+                <span class="date">28/09/2025</span>
+                <h3>Auditoría Web</h3>
+                <p>Cómo realizar auditorías de seguridad en aplicaciones web...</p>
+            </a>
+
+            <a href="#" class="news-card">
+                <img src="kalii.png" alt="Noticia 8">
+                <span class="date">25/09/2025</span>
+                <h3>Linux para Seguridad</h3>
+                <p>Distribuciones Linux especializadas en ciberseguridad...</p>
+            </a>
+
+            <a href="#" class="news-card">
+                <img src="kalii.png" alt="Noticia 9">
+                <span class="date">20/09/2025</span>
+                <h3>Hacking Ético</h3>
+                <p>Introducción a las metodologías de hacking ético...</p>
+            </a>
+        </div>
+
+        <!-- Paginación -->
+        <div class="pagination">
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link">5</a>
+            <a href="#" class="page-link next">Siguiente →</a>
+        </div>
+    </div>
 </div>
 
 <footer class="footer">
