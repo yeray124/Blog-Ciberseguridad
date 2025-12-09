@@ -6,74 +6,300 @@
     <title>Contacto - CyberSec Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contacto.css">
 </head>
 <body>
 
 <header>
-    <div class="logo">
-        <h2>CyberSec Blog</h2>
+  <div class="logo">
+    <h2>CyberSec Blog</h2>
+  </div>
+
+  <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span class="hamburger"></span>
+  </button>
+
+  <nav class="nav-links">
+    <a href="index.html">Inicio</a>
+    <div class="dropdown">
+      <a href="#" class="drop-toggle">Herramientas</a>
+      <div class="dropdown-menu">
+        <a href="#">Nmap</a>
+        <a href="#">Wireshark</a>
+        <a href="#">Burp Suite</a>
+        <a href="#">Metasploit</a>
+      </div>
     </div>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="#">Herramientas</a>
-        <a href="#">Sistemas Operativos</a>
-        <a href="#">Tutoriales</a>
-        <a href="#">Noticias</a>
-        <a href="#">Recursos</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
+    <a href="sistemas.html">Sistemas Operativos</a>
+    <a href="tutoriales.html">Tutoriales</a>
+    <a href="#">Noticias</a>
+    <a href="#">Recursos</a>
+    <a href="contacto.html" class="active">Contacto</a>
+  </nav>
 </header>
 
-<section class="hero hero-contact">
-    <h1>Contacto</h1>
-    <p>Ponte en contacto con nosotros para dudas, sugerencias o colaboraciones.</p>
-    <!-- Icono de correo -->
-    <div class="email-icon">&#9993;</div>
+<!-- Hero específico para contacto -->
+<section class="hero contacto-hero">
+    <div class="hero-content">
+        <h1>Contacta con Nosotros</h1>
+        <p>¿Tienes preguntas, sugerencias o quieres colaborar con nosotros? Estamos aquí para ayudarte.</p>
+    </div>
 </section>
 
+<div class="contacto-container">
+    <div class="contacto-wrapper">
+        <!-- Información de contacto -->
+        <aside class="contacto-info">
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <h3>Email</h3>
+                <p>contacto@cybersecblog.com</p>
+                <p>soporte@cybersecblog.com</p>
+            </div>
 
-<div class="container">
-    <div class="main-content">
-        <div class="card">
-            <div class="card-content">
-                <h3>Formulario de Contacto</h3>
-                <form>
-                    <label for="nombre">Nombre:</label><br>
-                    <input type="text" id="nombre" name="nombre" style="width:100%; padding:0.5rem; border-radius:5px; border:none; margin-bottom:1rem;"><br>
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <h3>Teléfono</h3>
+                <p>+34 912 345 678</p>
+                <p>+34 600 123 456 (Soporte)</p>
+            </div>
 
-                    <label for="email">Correo electrónico:</label><br>
-                    <input type="email" id="email" name="email" style="width:100%; padding:0.5rem; border-radius:5px; border:none; margin-bottom:1rem;"><br>
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <h3>Ubicación</h3>
+                <p>Calle Seguridad Digital, 123</p>
+                <p>Madrid, 28013</p>
+                <p>España</p>
+            </div>
 
-                    <label for="mensaje">Mensaje:</label><br>
-                    <textarea id="mensaje" name="mensaje" rows="5" style="width:100%; padding:0.5rem; border-radius:5px; border:none; margin-bottom:1rem;"></textarea><br>
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                <p>Sábados: 10:00 - 14:00</p>
+                <p>Domingos: Cerrado</p>
+            </div>
 
-                    <button type="submit">Enviar</button>
+            <!-- Redes Sociales -->
+            <div class="social-section">
+                <h3>Síguenos en Redes</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                        Twitter
+                    </a>
+                    <a href="#" class="social-link linkedin">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="#" class="social-link github">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="#" class="social-link telegram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 2L11 13"></path>
+                            <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+                        </svg>
+                        Telegram
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Formulario de Contacto -->
+        <main class="contacto-form">
+            <div class="form-container">
+                <h2>Envíanos un Mensaje</h2>
+                <p class="form-subtitle">Completa el formulario y te responderemos en menos de 24 horas.</p>
+                
+                <form id="contactForm" action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                            <div class="error-message"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="" disabled selected>Selecciona un asunto</option>
+                                <option value="consulta">Consulta General</option>
+                                <option value="soporte">Soporte Técnico</option>
+                                <option value="colaboracion">Colaboración</option>
+                                <option value="publicidad">Publicidad</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                        <div class="error-message"></div>
+                        <div class="char-counter">
+                            <span id="charCount">0</span> / 1000 caracteres
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="privacidad" name="privacidad" required>
+                        <label for="privacidad">
+                            Acepto la <a href="#" class="privacy-link">política de privacidad</a> y el tratamiento de mis datos.
+                        </label>
+                        <div class="error-message"></div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">
+                            Deseo recibir el newsletter mensual con novedades de ciberseguridad.
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Enviar Mensaje</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                        <button type="reset" class="reset-btn">Limpiar Formulario</button>
+                    </div>
+
+                    <div class="form-notice">
+                        <p>* Campos obligatorios</p>
+                        <p class="small">Todos los datos se transmiten mediante conexión SSL cifrada.</p>
+                    </div>
                 </form>
+
+                <!-- Mensaje de confirmación (oculto por defecto) -->
+                <div id="successMessage" class="success-message hidden">
+                    <div class="success-icon">✓</div>
+                    <h3>¡Mensaje Enviado!</h3>
+                    <p>Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos en breve.</p>
+                    <button id="newMessage" class="new-message-btn">Enviar otro mensaje</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="faq-container">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Cuánto tiempo tardan en responder?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Generalmente respondemos en menos de 24 horas hábiles. Para consultas técnicas complejas, puede tardar hasta 48 horas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Ofrecen soporte técnico personalizado?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí, ofrecemos servicios de consultoría y soporte técnico especializado en ciberseguridad. Contáctanos para más detalles.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Puedo colaborar escribiendo artículos?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Siempre estamos buscando colaboradores. Envíanos tu propuesta junto con muestras de tu trabajo.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>¿Cómo puedo patrocinar el blog?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Ofrecemos diferentes opciones de patrocinio. Escríbenos a publicidad@cybersecblog.com para conocer nuestras tarifas.</p>
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-    <aside class="sidebar">
-        <div class="widget">
-            <h4>Información</h4>
-            <p>Email: contacto@cybersecblog.com</p>
-            <p>Ubicación: España</p>
+<!-- Mapa de ubicación -->
+<div class="map-section">
+    <div class="map-container">
+        <h2>Nuestra Ubicación</h2>
+        <div class="map-placeholder">
+            <div class="map-content">
+                <div class="map-marker">
+                    <div class="marker-pulse"></div>
+                    <div class="marker-center"></div>
+                </div>
+                <p>Madrid, España</p>
+            </div>
+            <div class="map-overlay">
+                <p>Mapa interactivo de Google Maps</p>
+                <button class="map-btn">Ver en Google Maps</button>
+            </div>
         </div>
-        <div class="widget">
-            <h4>Síguenos</h4>
-            <ul>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">GitHub</a></li>
-            </ul>
-        </div>
-    </aside>
+    </div>
 </div>
 
-<footer>
-    <p>© 2025 CyberSec Blog. Todos los derechos reservados.</p>
+<footer class="footer">
+    <div class="footer-bottom">
+        <p>© 2025 CyberSec Blog. Todos los derechos reservados. | <a href="contacto.html">Contacto</a> | <a href="#">Política de Privacidad</a></p>
+    </div>
 </footer>
+
 <script src="eventos.js"></script>
+<script src="contacto.js"></script>
 </body>
 </html>
