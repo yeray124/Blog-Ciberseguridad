@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStats();
     renderTools(toolsData);
     setupEventListeners();
+    initTooltips();
 });
 
 // Actualizar estadísticas
@@ -225,21 +226,13 @@ function createToolCard(tool) {
                 <span class="tool-platform">${tool.platform}</span>
             </div>
             <div class="tool-actions">
-                <button class="tool-btn details" onclick="showToolDetails(${tool.id})">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="tool-btn" onclick="showToolDetails(${tool.id})">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M12 16v-4"/>
                         <path d="M12 8h.01"/>
                     </svg>
-                    Detalles
-                </button>
-                <button class="tool-btn" onclick="window.location.href='${tool.link}'">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                        <polyline points="15 3 21 3 21 9"/>
-                        <line x1="10" y1="14" x2="21" y2="3"/>
-                    </svg>
-                    Ver más
+                    VER GUÍA
                 </button>
             </div>
         </div>
@@ -377,31 +370,28 @@ function showToolDetails(toolId) {
                     <h2>${tool.name}</h2>
                     <div class="modal-meta">
                         <span class="modal-category">${getCategoryName(tool.category)}</span>
-                        <span class="modal-license">Licencia: ${tool.license}</span>
+                        <span class="modal-license">${tool.license}</span>
                         <span class="modal-difficulty ${tool.difficulty}">${difficultyText[tool.difficulty]}</span>
-                        <span class="modal-platform">Plataforma: ${tool.platform}</span>
+                        <span class="modal-platform">${tool.platform}</span>
                     </div>
                     <p class="modal-description">${tool.description}</p>
                     <h3>Características principales:</h3>
                     <ul class="modal-features">
                         ${tool.features.map(feature => `<li>${feature}</li>`).join('')}
                     </ul>
+                    <div class="modal-info">
+                        <p><strong>Licencia:</strong> ${tool.license}</p>
+                        <p><strong>Plataforma:</strong> ${tool.platform}</p>
+                        <p><strong>Dificultad:</strong> ${difficultyText[tool.difficulty]}</p>
+                        <p><strong>Categoría:</strong> ${getCategoryDescription(tool.category)}</p>
+                    </div>
                     <div class="modal-actions">
-                        <button onclick="window.open('https://www.google.com/search?q=${encodeURIComponent(tool.name)}+download', '_blank')" class="modal-btn download">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                <polyline points="7 10 12 15 17 10"/>
-                                <line x1="12" y1="15" x2="12" y2="3"/>
+                        <button onclick="window.open('https://www.google.com/search?q=${encodeURIComponent(tool.name + ' tutorial español')}', '_blank')" class="modal-btn guide">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
-                            Descargar
-                        </button>
-                        <button onclick="window.location.href='${tool.link}'" class="modal-btn learn-more">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 16v-4"/>
-                                <path d="M12 8h.01"/>
-                            </svg>
-                            Aprender más
+                            VER GUÍA COMPLETA
                         </button>
                     </div>
                 </div>
@@ -560,6 +550,25 @@ function showToolDetails(toolId) {
                 font-size: 1.2rem;
             }
             
+            .modal-info {
+                background: rgba(0, 0, 0, 0.2);
+                padding: 1.5rem;
+                border-radius: 12px;
+                margin: 1.5rem 0;
+                border: 1px solid rgba(0, 255, 171, 0.1);
+            }
+            
+            .modal-info p {
+                color: rgba(255, 255, 255, 0.9);
+                margin: 0.5rem 0;
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            .modal-info p strong {
+                color: var(--verde-neon);
+            }
+            
             .modal-actions {
                 display: flex;
                 gap: 1rem;
@@ -568,39 +577,30 @@ function showToolDetails(toolId) {
             
             .modal-btn {
                 flex: 1;
-                padding: 1rem 1.5rem;
+                padding: 1.2rem 1.5rem;
                 border: none;
                 border-radius: 10px;
-                font-weight: 600;
-                font-size: 1rem;
+                font-weight: 700;
+                font-size: 1.1rem;
                 cursor: pointer;
                 transition: all 0.3s ease;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 0.5rem;
+                gap: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
             }
             
-            .modal-btn.download {
-                background: var(--verde-neon);
+            .modal-btn.guide {
+                background: linear-gradient(135deg, var(--verde-neon), #00cc88);
                 color: var(--azul-oscuro);
             }
             
-            .modal-btn.download:hover {
-                background: #00e699;
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(0, 255, 171, 0.4);
-            }
-            
-            .modal-btn.learn-more {
-                background: transparent;
-                color: var(--verde-neon);
-                border: 2px solid var(--verde-neon);
-            }
-            
-            .modal-btn.learn-more:hover {
-                background: rgba(0, 255, 171, 0.1);
-                transform: translateY(-2px);
+            .modal-btn.guide:hover {
+                background: linear-gradient(135deg, #00cc88, var(--verde-neon));
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 255, 171, 0.4);
             }
         `;
         document.head.appendChild(style);
@@ -650,12 +650,50 @@ function initTooltips() {
     });
 }
 
-// Exportar funciones
+// Función para simular clic en categoría (para enlaces del menú)
+function filterByCategory(categoryName) {
+    const categoryMap = {
+        'nmap': 'escaneo',
+        'wireshark': 'analisis',
+        'burp': 'web',
+        'metasploit': 'exploit',
+        'hydra': 'cracking',
+        'aircrack': 'monitoring'
+    };
+    
+    const category = categoryMap[categoryName];
+    if (category) {
+        // Encontrar y hacer clic en el botón correspondiente
+        const buttons = document.querySelectorAll('.category-btn');
+        buttons.forEach(btn => {
+            if (btn.dataset.category === category || btn.dataset.category === 'all') {
+                btn.click();
+            }
+        });
+        
+        // Scroll al grid de herramientas
+        document.querySelector('.tools-grid').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Hacer funciones disponibles globalmente
 window.toolsModule = {
     filterTools,
     searchTools,
-    showToolDetails
+    showToolDetails,
+    filterByCategory
 };
 
-// Inicializar al cargar
-window.addEventListener('load', initTooltips);
+// Manejar enlaces hash en la URL
+window.addEventListener('hashchange', handleHash);
+window.addEventListener('load', handleHash);
+
+function handleHash() {
+    const hash = window.location.hash.substring(1); // Eliminar el #
+    if (hash && hash !== '') {
+        filterByCategory(hash);
+    }
+}

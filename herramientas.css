@@ -370,30 +370,76 @@
     font-size: 0.8rem;
 }
 
+/* ... (mantén todo lo anterior igual hasta .tool-actions) ... */
+
 .tool-actions {
     display: flex;
     gap: 0.5rem;
 }
 
+/* Botón único "Ver Guía" */
 .tool-btn {
-    padding: 0.6rem 1.2rem;
-    background: rgba(0, 255, 171, 0.1);
-    color: var(--verde-neon);
-    border: 1px solid rgba(0, 255, 171, 0.3);
-    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--verde-neon), #00cc88);
+    color: var(--azul-oscuro);
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 700;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .tool-btn:hover {
-    background: var(--verde-neon);
+    background: linear-gradient(135deg, #00cc88, var(--verde-neon));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 255, 171, 0.4);
+}
+
+.tool-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ... (mantén todo lo demás igual) ... */
+
+/* En el modal, también simplificar botones */
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.modal-btn.guide {
+    background: linear-gradient(135deg, var(--verde-neon), #00cc88);
     color: var(--azul-oscuro);
+}
+
+.modal-btn.guide:hover {
+    background: linear-gradient(135deg, #00cc88, var(--verde-neon));
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 171, 0.4);
 }
 
 .tool-btn.details {
