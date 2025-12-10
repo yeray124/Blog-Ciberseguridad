@@ -1247,3 +1247,34 @@ nav.nav-links a.active {
     color: var(--verde-neon);
     border-radius: 6px;
 }
+
+/* Estilos para el botón "Mostrar todos" */
+.show-all-container {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.show-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    background: transparent;
+    color: var(--verde-neon);
+    border: 2px solid var(--verde-neon);
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.show-all-btn:hover {
+    background: var(--verde-neon);
+    color: var(--azul-oscuro);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 171, 0.2);
+    text-decoration: none;
+}

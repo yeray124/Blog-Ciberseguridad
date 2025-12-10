@@ -171,9 +171,8 @@
             </div>
             
             <div class="featured-grid">
-                <article class="featured-tutorial premium">
+                <article class="featured-tutorial">
                     <div class="tutorial-badge">
-                        <span class="badge premium-badge"><i class="fas fa-crown"></i> Premium</span>
                         <span class="badge duration-badge"><i class="fas fa-clock"></i> 45 min</span>
                     </div>
                     <div class="tutorial-image">
@@ -321,6 +320,11 @@
                     </div>
                 </article>
             </div>
+            
+            <!-- Botón "Mostrar todos" para nivel principiante -->
+            <div class="show-all-container">
+                <a href="#" class="show-all-btn">Mostrar todos los tutoriales para principiantes <i class="fas fa-arrow-right"></i></a>
+            </div>
         </section>
         
         <!-- Tutoriales Intermedios -->
@@ -404,49 +408,105 @@
                     </div>
                 </article>
             </div>
+            
+            <!-- Botón "Mostrar todos" para nivel intermedio -->
+            <div class="show-all-container">
+                <a href="#" class="show-all-btn">Mostrar todos los tutoriales de nivel intermedio <i class="fas fa-arrow-right"></i></a>
+            </div>
         </section>
         
-        <!-- Paginación -->
-        <div class="tutorial-pagination">
-            <a href="#" class="page-prev"><i class="fas fa-chevron-left"></i> Anterior</a>
-            <div class="page-numbers">
-                <a href="#" class="page-number active">1</a>
-                <a href="#" class="page-number">2</a>
-                <a href="#" class="page-number">3</a>
-                <a href="#" class="page-number">4</a>
-                <a href="#" class="page-number">5</a>
+        <!-- Sección de Tutoriales para Expertos (NUEVA) -->
+        <section class="category-tutorials" id="expert-tutorials">
+            <div class="section-header">
+                <h2><i class="fas fa-crown"></i> Tutoriales para Expertos</h2>
+                <p>Técnicas avanzadas y especializadas para profesionales</p>
             </div>
-            <a href="#" class="page-next">Siguiente <i class="fas fa-chevron-right"></i></a>
-        </div>
+            
+            <div class="tutorials-grid">
+                <!-- Tutorial 7 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level expert">Experto</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 90 min</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Reverse Engineering Básico</h3>
+                        <p>Introducción al análisis inverso de binarios y técnicas de desensamblado.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Herramientas básicas</li>
+                            <li><i class="fas fa-check-circle"></i> Análisis estático</li>
+                            <li><i class="fas fa-check-circle"></i> Desensambladores</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0%"></div>
+                            <span>No iniciado</span>
+                        </div>
+                        <a href="#" class="start-btn">Comenzar <i class="fas fa-play"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Tutorial 8 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level expert">Experto</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 120 min</span>
+                        <span class="tutorial-lab"><i class="fas fa-flask"></i> Lab</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Explotación Avanzada de Binarios</h3>
+                        <p>Técnicas de explotación de binarios y bypass de protecciones modernas.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Buffer overflow avanzado</li>
+                            <li><i class="fas fa-check-circle"></i> ROP chains</li>
+                            <li><i class="fas fa-check-circle"></i> Bypass de ASLR/DEP</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 10%"></div>
+                            <span>10% completado</span>
+                        </div>
+                        <a href="#" class="continue-btn">Continuar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Tutorial 9 -->
+                <article class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-level expert">Experto</span>
+                        <span class="tutorial-time"><i class="fas fa-clock"></i> 85 min</span>
+                    </div>
+                    <div class="tutorial-body">
+                        <h3>Análisis de Malware en Profundidad</h3>
+                        <p>Metodologías avanzadas para el análisis de malware y reverse engineering.</p>
+                        <ul class="tutorial-topics">
+                            <li><i class="fas fa-check-circle"></i> Análisis dinámico</li>
+                            <li><i class="fas fa-check-circle"></i> Sandbox evasion</li>
+                            <li><i class="fas fa-check-circle"></i> Extracción de IOCs</li>
+                        </ul>
+                    </div>
+                    <div class="tutorial-footer">
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 0%"></div>
+                            <span>No iniciado</span>
+                        </div>
+                        <a href="#" class="start-btn">Comenzar <i class="fas fa-play"></i></a>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Botón "Mostrar todos" para nivel experto -->
+            <div class="show-all-container">
+                <a href="#" class="show-all-btn">Mostrar todos los tutoriales de nivel experto <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+        
     </main>
     
     <!-- Sidebar de tutoriales -->
     <aside class="tutoriales-sidebar">
-        <!-- Progreso del usuario -->
-        <div class="sidebar-widget progress-widget">
-            <h3><i class="fas fa-chart-bar"></i> Mi Progreso</h3>
-            <div class="progress-stats">
-                <div class="stat-item">
-                    <span class="stat-label">Tutoriales Completados</span>
-                    <span class="stat-value">8/24</span>
-                </div>
-                <div class="progress-circle">
-                    <div class="circle" data-value="33">
-                        <span>33%</span>
-                    </div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Horas de Estudio</span>
-                    <span class="stat-value">14.5h</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Días Consecutivos</span>
-                    <span class="stat-value">7</span>
-                </div>
-            </div>
-            <a href="#" class="view-progress-btn">Ver detalles <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
         <!-- Tutoriales recientes -->
         <div class="sidebar-widget recent-tutorials">
             <h3><i class="fas fa-history"></i> Recientemente Vistos</h3>
